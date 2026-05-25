@@ -68,11 +68,12 @@ Katalog_Python_Modula/
 Kako biste pokrenuli aplikaciju na svom računalu, slijedite ove korake:
 
 ### 1. Kloniranje ili preuzimanje projekta
-Preuzmite projekt s GitHuba ili ga klonirajte naredbom:
+
+Projekt možete preuzeti s GitHuba ili ga klonirati pomoću naredbe:
+
 ```bash
-git clone https://github.com/korisnicko-ime/Katalog_Python_Modula.git
-cd Katalog_Python_Modula
-```
+git clone https://github.com/Spotanko/python-moduli-final.git
+cd python-moduli-final
 
 ### 2. Kreiranje i aktivacija virtualnog okruženja (Preporučeno)
 U mapi projekta kreirajte virtualno okruženje kako ne biste utjecali na globalne pakete sustava:
