@@ -1,0 +1,4189 @@
+[
+  {
+    "name": "math",
+    "category": "Matematika",
+    "level": [
+      "osnovno",
+      "srednje",
+      "napredno"
+    ],
+    "builtin/pip_install": "builtin",
+    "builtin": true,
+    "pip_install": null,
+    "import": "import math",
+    "description": "Matematičke funkcije za rad s brojevima, trigonometrijom i konstantama.",
+    "docs": "https://docs.python.org/3/library/math.html",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "math.sqrt(x)",
+        "description": "Vrača kvadratni korijen broja x.",
+        "parameters": "x: broj",
+        "code": "import math\nprint(math.sqrt(16))",
+        "output": "4.0"
+      },
+      {
+        "level": "osnovno",
+        "title": "math.pow(x, y)",
+        "description": "Vrača x na potenciju y kao float.",
+        "parameters": "x: baza, y: eksponent",
+        "code": "import math\nprint(math.pow(2, 10))",
+        "output": "1024.0"
+      },
+      {
+        "level": "osnovno",
+        "title": "math.floor(x) / math.ceil(x)",
+        "description": "Zaokružuje broj na donji/gornji cijeli broj.",
+        "parameters": "x: float broj",
+        "code": "import math\nprint(math.floor(3.7))\nprint(math.ceil(3.2))",
+        "output": "3\n4"
+      },
+      {
+        "level": "osnovno",
+        "title": "math.pi / math.e",
+        "description": "Matematičke konstante π i e.",
+        "parameters": null,
+        "code": "import math\nprint(math.pi)\nprint(math.e)",
+        "output": "3.141592653589793\n2.718281828459045"
+      },
+      {
+        "level": "srednje",
+        "title": "math.log(x, base)",
+        "description": "Logaritam broja x s bazom.",
+        "parameters": "x: broj, base: baza (opcionalno)",
+        "code": "import math\nprint(math.log(100, 10))",
+        "output": "2.0"
+      },
+      {
+        "level": "srednje",
+        "title": "math.sin/cos/tan(x)",
+        "description": "Trigonometrijske funkcije (x u radijanima).",
+        "parameters": "x: kut u radijanima",
+        "code": "import math\nkut = math.radians(90)\nprint(math.sin(kut))",
+        "output": "1.0"
+      },
+      {
+        "level": "srednje",
+        "title": "math.factorial(n)",
+        "description": "Vrača n! (faktorijel).",
+        "parameters": "n: nenegativni cijeli broj",
+        "code": "import math\nprint(math.factorial(5))",
+        "output": "120"
+      },
+      {
+        "level": "srednje",
+        "title": "math.gcd(a, b)",
+        "description": "Največi zajednički djelitelj dva broja.",
+        "parameters": "a, b: cijeli brojevi",
+        "code": "import math\nprint(math.gcd(12, 8))",
+        "output": "4"
+      },
+      {
+        "level": "napredno",
+        "title": "Kalkulator geometrije",
+        "description": "Real-world primjer: kalkulator za opseg i površinu kruga.",
+        "parameters": null,
+        "code": "import math\n\ndef krug_info(r):\n    opseg = 2 * math.pi * r\n    povrsina = math.pi * r ** 2\n    return opseg, povrsina\n\nfor r in [1, 5, 10]:\n    o, p = krug_info(r)\n    print(f'r={r}: opseg={o:.2f}, površina={p:.2f}')",
+        "output": "r=1: opseg=6.28, površina=3.14\nr=5: opseg=31.42, površina=78.54\nr=10: opseg=62.83, površina=314.16"
+      },
+      {
+        "level": "napredno",
+        "title": "Pretvarač koordinata",
+        "description": "Pretvaranje izmeču polarnih i kartezijanskih koordinata.",
+        "parameters": null,
+        "code": "import math\n\ndef polar_u_kartezijanski(r, theta_deg):\n    theta = math.radians(theta_deg)\n    x = r * math.cos(theta)\n    y = r * math.sin(theta)\n    return round(x, 2), round(y, 2)\n\nprint(polar_u_kartezijanski(5, 45))",
+        "output": "(3.54, 3.54)"
+      }
+    ]
+  },
+  {
+    "name": "random",
+    "category": "Matematika",
+    "level": [
+      "osnovno",
+      "srednje",
+      "napredno"
+    ],
+    "builtin/pip_install": "builtin",
+    "builtin": true,
+    "pip_install": null,
+    "import": "import random",
+    "description": "Generiranje pseudo-slučajnih brojeva, odabir elemenata i miješanje.",
+    "docs": "https://docs.python.org/3/library/random.html",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "random.randint(a, b)",
+        "description": "Slučajni cijeli broj izmeču a i b (uključivo).",
+        "parameters": "a: min, b: max",
+        "code": "import random\nprint(random.randint(1, 6))",
+        "output": "npr. 4"
+      },
+      {
+        "level": "osnovno",
+        "title": "random.choice(seq)",
+        "description": "Slučajni odabir jednog elementa iz sekvence.",
+        "parameters": "seq: lista/tuple/string",
+        "code": "import random\nboje = ['crvena', 'plava', 'zelena']\nprint(random.choice(boje))",
+        "output": "npr. 'plava'"
+      },
+      {
+        "level": "osnovno",
+        "title": "random.shuffle(list)",
+        "description": "Miješa listu na mjestu (in-place).",
+        "parameters": "list: lista za miješanje",
+        "code": "import random\nkarte = [1, 2, 3, 4, 5]\nrandom.shuffle(karte)\nprint(karte)",
+        "output": "npr. [3, 1, 5, 2, 4]"
+      },
+      {
+        "level": "srednje",
+        "title": "random.sample(seq, k)",
+        "description": "Odabire k jedinstvenih elemenata iz sekvence.",
+        "parameters": "seq: sekvenca, k: broj elemenata",
+        "code": "import random\nloto = random.sample(range(1, 40), 7)\nprint(sorted(loto))",
+        "output": "npr. [3, 7, 12, 22, 31, 35, 38]"
+      },
+      {
+        "level": "srednje",
+        "title": "random.uniform(a, b)",
+        "description": "Slučajni float u rasponu [a, b].",
+        "parameters": "a: min, b: max",
+        "code": "import random\nprint(random.uniform(1.5, 9.5))",
+        "output": "npr. 6.234"
+      },
+      {
+        "level": "srednje",
+        "title": "random.seed(n)",
+        "description": "Postavlja sjeme za ponovljivost rezultata.",
+        "parameters": "n: seed vrijednost",
+        "code": "import random\nrandom.seed(42)\nprint(random.random())",
+        "output": "0.6394267984578837"
+      },
+      {
+        "level": "napredno",
+        "title": "Generator lozinki",
+        "description": "Real-world primjer: generator sigurnih lozinki.",
+        "parameters": null,
+        "code": "import random\nimport string\n\ndef generiraj_lozinku(duljina=12):\n    znakovi = string.ascii_letters + string.digits + '!@#$%'\n    lozinka = ''.join(random.choice(znakovi) for _ in range(duljina))\n    return lozinka\n\nfor _ in range(3):\n    print(generiraj_lozinku())",
+        "output": "npr. xK3!mP9@qR2z\nnpr. Hs7$tL4#wN1a\nnpr. bQ8%vR6!yM3p"
+      },
+      {
+        "level": "napredno",
+        "title": "Simulacija bacanja kocke",
+        "description": "Simulacija 1000 bacanja i statistika.",
+        "parameters": null,
+        "code": "import random\nfrom collections import Counter\n\nbacanja = [random.randint(1, 6) for _ in range(1000)]\nstats = Counter(bacanja)\nfor broj in sorted(stats):\n    print(f'{broj}: {stats[broj]} ({stats[broj]/10:.1f}%)')",
+        "output": "1: 167 (16.7%)\n2: 171 (17.1%)\n..."
+      }
+    ]
+  },
+  {
+    "name": "statistics",
+    "category": "Matematika",
+    "level": [
+      "osnovno",
+      "srednje",
+      "napredno"
+    ],
+    "builtin/pip_install": "builtin",
+    "builtin": true,
+    "pip_install": null,
+    "import": "import statistics",
+    "description": "Statističke funkcije: srednja vrijednost, medijan, standardna devijacija.",
+    "docs": "https://docs.python.org/3/library/statistics.html",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "statistics.mean(data)",
+        "description": "Aritmetička sredina.",
+        "parameters": "data: niz brojeva",
+        "code": "import statistics\nocjene = [5, 4, 3, 5, 4]\nprint(statistics.mean(ocjene))",
+        "output": "4.2"
+      },
+      {
+        "level": "osnovno",
+        "title": "statistics.median(data)",
+        "description": "Medijan (srednja vrijednost).",
+        "parameters": "data: niz brojeva",
+        "code": "import statistics\nprint(statistics.median([1, 3, 5, 7, 9]))",
+        "output": "5"
+      },
+      {
+        "level": "osnovno",
+        "title": "statistics.mode(data)",
+        "description": "Najčešča vrijednost (mod).",
+        "parameters": "data: niz vrijednosti",
+        "code": "import statistics\nprint(statistics.mode([1, 2, 2, 3, 3, 3]))",
+        "output": "3"
+      },
+      {
+        "level": "srednje",
+        "title": "statistics.stdev(data)",
+        "description": "Standardna devijacija uzorka.",
+        "parameters": "data: niz brojeva (min 2)",
+        "code": "import statistics\nprint(statistics.stdev([2, 4, 4, 4, 5, 5, 7, 9]))",
+        "output": "2.138..."
+      },
+      {
+        "level": "srednje",
+        "title": "statistics.variance(data)",
+        "description": "Varijanca uzorka.",
+        "parameters": "data: niz brojeva",
+        "code": "import statistics\nprint(statistics.variance([2, 4, 4, 4, 5, 5, 7, 9]))",
+        "output": "4.571..."
+      },
+      {
+        "level": "napredno",
+        "title": "Analiza ocjena",
+        "description": "Real-world: analiza školskih ocjena s prosjekom i medijanom.",
+        "parameters": null,
+        "code": "import statistics\n\nocjene = {\n    'Matematika': [5, 4, 3, 5, 4],\n    'Fizika': [3, 3, 4, 2, 3],\n    'Informatika': [5, 5, 5, 4, 5]\n}\n\nfor predmet, ocj in ocjene.items():\n    prosjek = statistics.mean(ocj)\n    medijan = statistics.median(ocj)\n    print(f'{predmet}: prosjek={prosjek:.1f}, medijan={medijan}')",
+        "output": "Matematika: prosjek=4.2, medijan=4\nFizika: prosjek=3.0, medijan=3\nInformatika: prosjek=4.8, medijan=5"
+      }
+    ]
+  },
+  {
+    "name": "string",
+    "category": "Tekst",
+    "level": [
+      "osnovno",
+      "srednje",
+      "napredno"
+    ],
+    "builtin/pip_install": "builtin",
+    "builtin": true,
+    "pip_install": null,
+    "import": "import string",
+    "description": "Konstante i pomočne klase za rad sa stringovima.",
+    "docs": "https://docs.python.org/3/library/string.html",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "string.ascii_letters",
+        "description": "Sva ASCII slova (mala + velika).",
+        "parameters": null,
+        "code": "import string\nprint(string.ascii_letters)",
+        "output": "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+      },
+      {
+        "level": "osnovno",
+        "title": "string.digits",
+        "description": "Svi ASCII znakovi za znamenke.",
+        "parameters": null,
+        "code": "import string\nprint(string.digits)",
+        "output": "0123456789"
+      },
+      {
+        "level": "osnovno",
+        "title": "string.punctuation",
+        "description": "Svi interpunkcijski znakovi.",
+        "parameters": null,
+        "code": "import string\nprint(string.punctuation)",
+        "output": "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
+      },
+      {
+        "level": "srednje",
+        "title": "string.Template",
+        "description": "Jednostavan mehanizam za zamjenu varijabli.",
+        "parameters": null,
+        "code": "from string import Template\nt = Template('Bok $ime!')\nprint(t.substitute(ime='Ana'))",
+        "output": "Bok Ana!"
+      },
+      {
+        "level": "srednje",
+        "title": "string.capwords(s)",
+        "description": "Svaku riječ stavlja s velikim početnim slovom.",
+        "parameters": "s: string",
+        "code": "import string\nprint(string.capwords('hello world'))",
+        "output": "Hello World"
+      },
+      {
+        "level": "napredno",
+        "title": "čistač teksta",
+        "description": "Real-world: čiščenje korisničkog unosa od interpunkcije.",
+        "parameters": null,
+        "code": "import string\n\ndef ocisti_tekst(tekst):\n    translator = str.maketrans('', '', string.punctuation)\n    cist = tekst.translate(translator).lower().strip()\n    return ' '.join(cist.split())\n\nprint(ocisti_tekst('         Bok!! Kako si???           '))",
+        "output": "bok kako si"
+      }
+    ]
+  },
+  {
+    "name": "re",
+    "category": "Tekst",
+    "level": [
+      "osnovno",
+      "srednje",
+      "napredno"
+    ],
+    "builtin/pip_install": "builtin",
+    "builtin": true,
+    "pip_install": null,
+    "import": "import re",
+    "description": "Regularni izrazi za pretraživanje i manipulaciju teksta.",
+    "docs": "https://docs.python.org/3/library/re.html",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "re.search(pattern, string)",
+        "description": "Traži prvi match patternu u stringu.",
+        "parameters": "pattern: regex, string: tekst",
+        "code": "import re\nrezultat = re.search(r'\\d+', 'Imam 25 godina')\nprint(rezultat.group())",
+        "output": "25"
+      },
+      {
+        "level": "osnovno",
+        "title": "re.findall(pattern, string)",
+        "description": "Vrača listu svih matcheva.",
+        "parameters": "pattern: regex, string: tekst",
+        "code": "import re\nbrojevi = re.findall(r'\\d+', 'Imam 2 psa i 3 ma■ke')\nprint(brojevi)",
+        "output": "['2', '3']"
+      },
+      {
+        "level": "osnovno",
+        "title": "re.sub(pattern, repl, string)",
+        "description": "Zamjenjuje matcheve novim tekstom.",
+        "parameters": "pattern: regex, repl: zamjena, string: tekst",
+        "code": "import re\ntekst = re.sub(r'\\d+', 'X', 'Tel: 091-234-5678')\nprint(tekst)",
+        "output": "Tel: X-X-X"
+      },
+      {
+        "level": "srednje",
+        "title": "re.match(pattern, string)",
+        "description": "Traži match samo na početku stringa.",
+        "parameters": "pattern: regex, string: tekst",
+        "code": "import re\nprint(re.match(r'\\d+', '123abc'))\nprint(re.match(r'\\d+', 'abc123'))",
+        "output": "<Match '123'>\nNone"
+      },
+      {
+        "level": "srednje",
+        "title": "re.compile(pattern)",
+        "description": "Kompajlira regex za višestruko korištenje.",
+        "parameters": "pattern: regex string",
+        "code": "import re\nemail = re.compile(r'[\\w.]+@[\\w.]+')\nprint(email.findall('Piši na ana@mail.com'))",
+        "output": "['ana@mail.com']"
+      },
+      {
+        "level": "napredno",
+        "title": "Validacija email adresa",
+        "description": "Real-world: provjera formata email adresa.",
+        "parameters": null,
+        "code": "import re\n\ndef validiraj_email(email):\n    pattern = r'^[\\w.+-]+@[\\w-]+\\.[a-zA-Z]{2,}$'\n    return bool(re.match(pattern, email))\n\nemailovi = ['ana@gmail.com', 'krivi@', 'test@hr.co']\nfor e in emailovi:\n    print(f'{e}: {validiraj_email(e)}')",
+        "output": "ana@gmail.com: True\nkrivi@: False\ntest@hr.co: True"
+      }
+    ]
+  },
+  {
+    "name": "datetime",
+    "category": "Datum",
+    "level": [
+      "osnovno",
+      "srednje",
+      "napredno"
+    ],
+    "builtin/pip_install": "builtin",
+    "builtin": true,
+    "pip_install": null,
+    "import": "from datetime import datetime, date, timedelta",
+    "description": "Rad s datumima, vremenima i vremenskim intervalima.",
+    "docs": "https://docs.python.org/3/library/datetime.html",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "datetime.now()",
+        "description": "Trenutni datum i vrijeme.",
+        "parameters": null,
+        "code": "from datetime import datetime\nprint(datetime.now())",
+        "output": "2024-01-15 14:30:00.123456"
+      },
+      {
+        "level": "osnovno",
+        "title": "date.today()",
+        "description": "Današnji datum.",
+        "parameters": null,
+        "code": "from datetime import date\nprint(date.today())",
+        "output": "2024-01-15"
+      },
+      {
+        "level": "osnovno",
+        "title": "strftime(format)",
+        "description": "Formatira datum/vrijeme u string.",
+        "parameters": "format: format string (%d, %m, %Y...)",
+        "code": "from datetime import datetime\nsad = datetime.now()\nprint(sad.strftime('%d.%m.%Y %H:%M'))",
+        "output": "15.01.2024 14:30"
+      },
+      {
+        "level": "osnovno",
+        "title": "timedelta",
+        "description": "Razlika izmeču dva datuma.",
+        "parameters": null,
+        "code": "from datetime import date, timedelta\nsutra = date.today() + timedelta(days=1)\nprint(sutra)",
+        "output": "2024-01-16"
+      },
+      {
+        "level": "srednje",
+        "title": "strptime(string, format)",
+        "description": "Parsira string u datetime objekt.",
+        "parameters": "string: datum string, format: format",
+        "code": "from datetime import datetime\nd = datetime.strptime('15-01-2024', '%d-%m-%Y')\nprint(d.year, d.month)",
+        "output": "2024 1"
+      },
+      {
+        "level": "srednje",
+        "title": "Usporedba datuma",
+        "description": "Datumi se mogu usporečivati operatorima.",
+        "parameters": null,
+        "code": "from datetime import date\nd1 = date(2024, 1, 1)\nd2 = date(2024, 12, 31)\nprint(d1 < d2)\nprint((d2 - d1).days)",
+        "output": "True\n365"
+      },
+      {
+        "level": "napredno",
+        "title": "Odbrojavanje do datuma",
+        "description": "Real-world: koliko dana do nekog dogačaja.",
+        "parameters": null,
+        "code": "from datetime import date\n\ndef dani_do(cilj_datum):\n    danas = date(2024, 1, 15) # simulirano\n    razlika = cilj_datum - danas\n    return razlika.days\n\nnova_godina = date(2025, 1, 1)\nprint(f'Do Nove godine: {dani_do(nova_godina)} dana')",
+        "output": "Do Nove godine: 351 dana"
+      }
+    ]
+  },
+  {
+    "name": "time",
+    "category": "Datum",
+    "level": [
+      "osnovno",
+      "srednje",
+      "napredno"
+    ],
+    "builtin/pip_install": "builtin",
+    "builtin": true,
+    "pip_install": null,
+    "import": "import time",
+    "description": "Funkcije za mjerenje vremena i pauziranje programa.",
+    "docs": "https://docs.python.org/3/library/time.html",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "time.sleep(seconds)",
+        "description": "Pauzira izvršavanje programa.",
+        "parameters": "seconds: broj sekundi",
+        "code": "import time\nprint('Po■inje...')\ntime.sleep(2)\nprint('Prošlo je 2 sekunde!')",
+        "output": "Po■inje...\n(pauza 2s)\nProšlo je 2 sekunde!"
+      },
+      {
+        "level": "osnovno",
+        "title": "time.time()",
+        "description": "Trenutno vrijeme kao Unix timestamp.",
+        "parameters": null,
+        "code": "import time\nprint(time.time())",
+        "output": "npr. 1705312200.123"
+      },
+      {
+        "level": "srednje",
+        "title": "time.perf_counter()",
+        "description": "Precizno mjerenje vremena izvršavanja.",
+        "parameters": null,
+        "code": "import time\nstart = time.perf_counter()\nsum(range(1000000))\nend = time.perf_counter()\nprint(f'Trajalo: {end - start:.4f}s')",
+        "output": "Trajalo: 0.0234s"
+      },
+      {
+        "level": "napredno",
+        "title": "Mjerač performansi",
+        "description": "Real-world: dekorator za mjerenje vremena funkcija.",
+        "parameters": null,
+        "code": "import time\n\ndef mjeri_vrijeme(func):\n    def wrapper(*args):\n        start = time.perf_counter()\n        rezultat = func(*args)\n        end = time.perf_counter()\n        print(f'{func.__name__}: {end-start:.4f}s')\n        return rezultat\n    return wrapper\n\n@mjeri_vrijeme\ndef spora_funkcija():\n    time.sleep(1)\n    return 'gotovo'\n\nspora_funkcija()",
+        "output": "spora_funkcija: 1.0012s"
+      }
+    ]
+  },
+  {
+    "name": "os",
+    "category": "Datoteke",
+    "level": [
+      "osnovno",
+      "srednje",
+      "napredno"
+    ],
+    "builtin/pip_install": "builtin",
+    "builtin": true,
+    "pip_install": null,
+    "import": "import os",
+    "description": "Interakcija s operativnim sustavom: datoteke, direktoriji, varijable okruženja.",
+    "docs": "https://docs.python.org/3/library/os.html",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "os.getcwd()",
+        "description": "Vrača trenutni radni direktorij.",
+        "parameters": null,
+        "code": "import os\nprint(os.getcwd())",
+        "output": "/home/korisnik/projekt"
+      },
+      {
+        "level": "osnovno",
+        "title": "os.listdir(path)",
+        "description": "Lista datoteka i mapa u direktoriju.",
+        "parameters": "path: put do direktorija",
+        "code": "import os\nfor f in os.listdir('.'):\n    print(f)",
+        "output": "main.py\npodaci\nREADME.md"
+      },
+      {
+        "level": "osnovno",
+        "title": "os.path.exists(path)",
+        "description": "Provjerava postoji li datoteka/mapa.",
+        "parameters": "path: put",
+        "code": "import os\nprint(os.path.exists('podaci.txt'))",
+        "output": "True/False"
+      },
+      {
+        "level": "osnovno",
+        "title": "os.makedirs(path)",
+        "description": "Stvara direktorij (i poddirektorije).",
+        "parameters": "path: put, exist_ok: bool",
+        "code": "import os\nos.makedirs('projekt/podaci', exist_ok=True)",
+        "output": "(stvara mape)"
+      },
+      {
+        "level": "srednje",
+        "title": "os.path.join()",
+        "description": "Spaja dijelove puta (cross-platform).",
+        "parameters": null,
+        "code": "import os\nput = os.path.join('mapa', 'podmapa', 'datoteka.txt')\nprint(put)",
+        "output": "mapa/podmapa/datoteka.txt"
+      },
+      {
+        "level": "srednje",
+        "title": "os.environ",
+        "description": "Pristup varijablama okruženja.",
+        "parameters": null,
+        "code": "import os\nprint(os.environ.get('HOME'))",
+        "output": "/home/korisnik"
+      },
+      {
+        "level": "srednje",
+        "title": "os.walk(path)",
+        "description": "Rekurzivno prolazi kroz direktorije.",
+        "parameters": "path: korijenski direktorij",
+        "code": "import os\nfor root, dirs, files in os.walk('.'):\n    for f in files:\n        print(os.path.join(root, f))",
+        "output": "./main.py\n./src/app.py\n..."
+      },
+      {
+        "level": "napredno",
+        "title": "Organizator datoteka",
+        "description": "Real-world: sortira datoteke po ekstenziji u mape.",
+        "parameters": null,
+        "code": "import os\nimport shutil\n\ndef organiziraj(direktorij):\n    for f in os.listdir(direktorij):\n        put = os.path.join(direktorij, f)\n        if os.path.isfile(put):\n            ext = os.path.splitext(f)[1][1:] or 'ostalo'\n            nova_mapa = os.path.join(direktorij, ext)\n            os.makedirs(nova_mapa, exist_ok=True)\n            shutil.move(put, os.path.join(nova_mapa, f))\n            print(f'{f} → {ext}/')\n\n# organiziraj('Downloads')",
+        "output": "slika.jpg → jpg/\ndokument.pdf → pdf/\nskript.py → py/"
+      }
+    ]
+  },
+  {
+    "name": "pathlib",
+    "category": "Datoteke",
+    "level": [
+      "osnovno",
+      "srednje",
+      "napredno"
+    ],
+    "builtin/pip_install": "builtin",
+    "builtin": true,
+    "pip_install": null,
+    "import": "from pathlib import Path",
+    "description": "Moderni objektno-orijentirani pristup datotečnim putanjama.",
+    "docs": "https://docs.python.org/3/library/pathlib.html",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "Path('...')",
+        "description": "Stvara Path objekt.",
+        "parameters": null,
+        "code": "from pathlib import Path\np = Path('mapa/datoteka.txt')\nprint(p.name)\nprint(p.suffix)\nprint(p.parent)",
+        "output": "datoteka.txt\n.txt\nmapa"
+      },
+      {
+        "level": "osnovno",
+        "title": "Path.cwd() / Path.home()",
+        "description": "Trenutni direktorij / kučni direktorij.",
+        "parameters": null,
+        "code": "from pathlib import Path\nprint(Path.cwd())\nprint(Path.home())",
+        "output": "/home/korisnik/projekt\n/home/korisnik"
+      },
+      {
+        "level": "srednje",
+        "title": "path.read_text() / write_text()",
+        "description": "čitanje/pisanje tekstualnih datoteka.",
+        "parameters": null,
+        "code": "from pathlib import Path\np = Path('poruka.txt')\np.write_text('Bok!')\nprint(p.read_text())",
+        "output": "Bok!"
+      },
+      {
+        "level": "srednje",
+        "title": "path.glob(pattern)",
+        "description": "Pronalazi datoteke po patternu.",
+        "parameters": "pattern: glob pattern",
+        "code": "from pathlib import Path\nfor f in Path('.').glob('*.py'):\n    print(f)",
+        "output": "main.py\napp.py"
+      },
+      {
+        "level": "napredno",
+        "title": "Pretraživač projekta",
+        "description": "Real-world: prebrojavanje linija koda u projektu.",
+        "parameters": null,
+        "code": "from pathlib import Path\n\ndef broji_linije(direktorij, ext='.py'):\n    ukupno = 0\n    for f in Path(direktorij).rglob(f'*{ext}'):\n        linije = len(f.read_text().splitlines())\n        print(f'{f.name}: {linije} linija')\n        ukupno += linije\n    print(f'Ukupno: {ukupno} linija')\n\n# broji_linije('src')",
+        "output": "main.py: 45 linija\napp.py: 120 linija\nUkupno: 165 linija"
+      }
+    ]
+  },
+  {
+    "name": "shutil",
+    "category": "Datoteke",
+    "level": [
+      "osnovno",
+      "napredno"
+    ],
+    "builtin/pip_install": "builtin",
+    "builtin": true,
+    "pip_install": null,
+    "import": "import shutil",
+    "description": "Kopiranje, premještanje i brisanje datoteka i direktorija.",
+    "docs": "https://docs.python.org/3/library/shutil.html",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "shutil.copy(src, dst)",
+        "description": "Kopira datoteku.",
+        "parameters": "src: izvor, dst: odredište",
+        "code": "import shutil\nshutil.copy('original.txt', 'kopija.txt')",
+        "output": "'kopija.txt'"
+      },
+      {
+        "level": "osnovno",
+        "title": "shutil.move(src, dst)",
+        "description": "Premješta datoteku ili direktorij.",
+        "parameters": "src: izvor, dst: odredište",
+        "code": "import shutil\nshutil.move('staro.txt', 'nova_mapa/staro.txt')",
+        "output": "'nova_mapa/staro.txt'"
+      },
+      {
+        "level": "osnovno",
+        "title": "shutil.rmtree(path)",
+        "description": "Briše direktorij sa svim sadržajem.",
+        "parameters": "path: direktorij za brisanje",
+        "code": "import shutil\nshutil.rmtree('temp_mapa')              # OPREZ!",
+        "output": "(briše sve)"
+      },
+      {
+        "level": "napredno",
+        "title": "Backup alat",
+        "description": "Real-world: stvaranje backup-a projekta.",
+        "parameters": null,
+        "code": "import shutil\nfrom datetime import datetime\n\ndef backup(src_dir):\n    datum = datetime.now().strftime('%Y%m%d_%H%M%S')\n    backup_name = f'{src_dir}_backup_{datum}'\n    shutil.copytree(src_dir, backup_name)\n    print(f'Backup: {backup_name}')\n\n# backup('moj_projekt')",
+        "output": "Backup: moj_projekt_backup_20240115_143000"
+      }
+    ]
+  },
+  {
+    "name": "sys",
+    "category": "Datoteke",
+    "level": [
+      "osnovno",
+      "napredno"
+    ],
+    "builtin/pip_install": "builtin",
+    "builtin": true,
+    "pip_install": null,
+    "import": "import sys",
+    "description": "Pristup Python interpreteru: argumenti, putanje, verzija.",
+    "docs": "https://docs.python.org/3/library/sys.html",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "sys.argv",
+        "description": "Lista argumenata komandne linije.",
+        "parameters": null,
+        "code": "import sys\n# python skripta.py arg1 arg2\nprint(sys.argv)",
+        "output": "['skripta.py', 'arg1', 'arg2']"
+      },
+      {
+        "level": "osnovno",
+        "title": "sys.version",
+        "description": "Verzija Python interpretera.",
+        "parameters": null,
+        "code": "import sys\nprint(sys.version)",
+        "output": "3.12.0 ..."
+      },
+      {
+        "level": "osnovno",
+        "title": "sys.exit(code)",
+        "description": "Završava program s exit kodom.",
+        "parameters": "code: 0=uspjeh, 1=greška",
+        "code": "import sys\n# sys.exit(0)      # normalan izlaz\n# sys.exit(1)      # izlaz s greškom",
+        "output": "(završava program)"
+      },
+      {
+        "level": "napredno",
+        "title": "CLI alat",
+        "description": "Real-world: jednostavni CLI program.",
+        "parameters": null,
+        "code": "import sys\n\ndef main():\n    if len(sys.argv) < 2:\n        print('Korištenje: python alat.py <naredba>')\n        sys.exit(1)\n    naredba = sys.argv[1]\n    if naredba == 'pozdrav':\n        ime = sys.argv[2] if len(sys.argv) > 2 else 'svijete'\n        print(f'Bok, {ime}!')\n    else:\n        print(f'Nepoznata naredba: {naredba}')\n\nmain()",
+        "output": "$ python alat.py pozdrav Ana\nBok, Ana!"
+      }
+    ]
+  },
+  {
+    "name": "csv",
+    "category": "Datoteke",
+    "level": [
+      "osnovno",
+      "srednje",
+      "napredno"
+    ],
+    "builtin/pip_install": "builtin",
+    "builtin": true,
+    "pip_install": null,
+    "import": "import csv",
+    "description": "čitanje i pisanje CSV datoteka.",
+    "docs": "https://docs.python.org/3/library/csv.html",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "csv.reader(file)",
+        "description": "čita CSV datoteku red po red.",
+        "parameters": "file: file objekt",
+        "code": "import csv\nwith open('podaci.csv') as f:\n    reader = csv.reader(f)\n    for red in reader:\n        print(red)",
+        "output": "['Ana', '25', 'Zagreb']\n['Ivan', '30', 'Split']"
+      },
+      {
+        "level": "osnovno",
+        "title": "csv.writer(file)",
+        "description": "Piše redove u CSV datoteku.",
+        "parameters": "file: file objekt",
+        "code": "import csv\nwith open('izlaz.csv', 'w', newline='') as f:\n    writer = csv.writer(f)\n    writer.writerow(['Ime', 'Dob'])\n    writer.writerow(['Ana', 25])",
+        "output": "(sprema CSV)"
+      },
+      {
+        "level": "srednje",
+        "title": "csv.DictReader(file)",
+        "description": "čita CSV kao dict s headerima.",
+        "parameters": "file: file objekt",
+        "code": "import csv\nwith open('podaci.csv') as f:\n    reader = csv.DictReader(f)\n    for red in reader:\n        print(red['Ime'], red['Dob'])",
+        "output": "Ana 25\nIvan 30"
+      },
+      {
+        "level": "napredno",
+        "title": "CSV izvještaj",
+        "description": "Real-world: generiranje izvještaja iz CSV podataka.",
+        "parameters": null,
+        "code": "import csv\nfrom collections import Counter\n\n# Simulacija podataka\npodaci = [\n    {'Grad': 'Zagreb', 'Proizvod': 'A', 'Cijena': '100'},\n    {'Grad': 'Split', 'Proizvod': 'B', 'Cijena': '200'},\n    {'Grad': 'Zagreb', 'Proizvod': 'A', 'Cijena': '150'},\n]\n\ngradovi = Counter(r['Grad'] for r in podaci)\nfor grad, broj in gradovi.most_common():\n    print(f'{grad}: {broj} narudžbi')",
+        "output": "Zagreb: 2 narudžbi\nSplit: 1 narudžbi"
+      }
+    ]
+  },
+  {
+    "name": "collections",
+    "category": "Strukture",
+    "level": [
+      "osnovno",
+      "srednje",
+      "napredno"
+    ],
+    "builtin/pip_install": "builtin",
+    "builtin": true,
+    "pip_install": null,
+    "import": "from collections import Counter, defaultdict, deque",
+    "description": "Specijalizirane strukture podataka: Counter, defaultdict, deque, namedtuple.",
+    "docs": "https://docs.python.org/3/library/collections.html",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "Counter(iterable)",
+        "description": "Broji pojavljivanja elemenata.",
+        "parameters": "iterable: lista/string/...",
+        "code": "from collections import Counter\nrijeci = 'jabuka banana jabuka kruška jabuka'.split()\nc = Counter(rijeci)\nprint(c.most_common(2))",
+        "output": "[('jabuka', 3), ('banana', 1)]"
+      },
+      {
+        "level": "osnovno",
+        "title": "defaultdict(type)",
+        "description": "Dict koji automatski stvara default vrijednosti.",
+        "parameters": "type: tip default vrijednosti (list, int...)",
+        "code": "from collections import defaultdict\nd = defaultdict(list)\nd['vo■e'].append('jabuka')\nd['vo■e'].append('banana')\nprint(dict(d))",
+        "output": "{'vo■e': ['jabuka', 'banana']}"
+      },
+      {
+        "level": "srednje",
+        "title": "deque(iterable)",
+        "description": "Dvostruki red (efikasno dodavanje/uklanjanje s obje strane).",
+        "parameters": "iterable: početni elementi",
+        "code": "from collections import deque\nd = deque([1, 2, 3])\nd.appendleft(0)\nd.append(4)\nprint(list(d))",
+        "output": "[0, 1, 2, 3, 4]"
+      },
+      {
+        "level": "srednje",
+        "title": "namedtuple(name, fields)",
+        "description": "Tuple s imenovanim poljima.",
+        "parameters": "name: ime tipa, fields: lista polja",
+        "code": "from collections import namedtuple\nTocka = namedtuple('Tocka', ['x', 'y'])\np = Tocka(3, 4)\nprint(p.x, p.y)",
+        "output": "3 4"
+      },
+      {
+        "level": "napredno",
+        "title": "Analiza teksta",
+        "description": "Real-world: najčešče riječi u tekstu.",
+        "parameters": null,
+        "code": "from collections import Counter\n\ntekst = 'Python je programski jezik Python je popularan jezik'\nrijeci = tekst.lower().split()\nfor rijec, broj in Counter(rijeci).most_common(3):\n    print(f'{rijec}: {broj}x')",
+        "output": "python: 2x\nje: 2x\njezik: 2x"
+      }
+    ]
+  },
+  {
+    "name": "itertools",
+    "category": "Strukture",
+    "level": [
+      "osnovno",
+      "srednje",
+      "napredno"
+    ],
+    "builtin/pip_install": "builtin",
+    "builtin": true,
+    "pip_install": null,
+    "import": "import itertools",
+    "description": "Efikasni iteratori: permutacije, kombinacije, beskonačne sekvence.",
+    "docs": "https://docs.python.org/3/library/itertools.html",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "itertools.count(start, step)",
+        "description": "Beskonačni brojač.",
+        "parameters": "start: početak, step: korak",
+        "code": "import itertools\nfor i in itertools.count(10, 2):\n    if i > 20: break\n    print(i, end=' ')",
+        "output": "10 12 14 16 18 20"
+      },
+      {
+        "level": "osnovno",
+        "title": "itertools.cycle(iterable)",
+        "description": "Beskonačno ponavlja sekvencu.",
+        "parameters": "iterable: sekvenca",
+        "code": "import itertools\nboje = itertools.cycle(['R', 'G', 'B'])\nrez = [next(boje) for _ in range(6)]\nprint(rez)",
+        "output": "['R', 'G', 'B', 'R', 'G', 'B']"
+      },
+      {
+        "level": "srednje",
+        "title": "itertools.combinations(it, r)",
+        "description": "Sve kombinacije r elemenata.",
+        "parameters": "it: sekvenca, r: veličina kombinacije",
+        "code": "import itertools\nfor c in itertools.combinations('ABCD', 2):\n    print(c)",
+        "output": "('A','B') ('A','C') ('A','D') ('B','C')..."
+      },
+      {
+        "level": "srednje",
+        "title": "itertools.permutations(it, r)",
+        "description": "Sve permutacije r elemenata.",
+        "parameters": "it: sekvenca, r: veličina",
+        "code": "import itertools\nrez = list(itertools.permutations('ABC', 2))\nprint(len(rez))",
+        "output": "6"
+      },
+      {
+        "level": "srednje",
+        "title": "itertools.chain(*iterables)",
+        "description": "Spaja više iteratora u jedan.",
+        "parameters": "*iterables: iteratori za spajanje",
+        "code": "import itertools\na = [1, 2]\nb = [3, 4]\nprint(list(itertools.chain(a, b)))",
+        "output": "[1, 2, 3, 4]"
+      },
+      {
+        "level": "napredno",
+        "title": "Generator kombinacija za loto",
+        "description": "Real-world: generiranje svih mogučih loto kombinacija.",
+        "parameters": null,
+        "code": "import itertools\n\nbrojevi = range(1, 8) # mali primjer\nkombinacije = list(itertools.combinations(brojevi, 3))\nprint(f'Ukupno kombinacija: {len(kombinacije)}')\nfor k in kombinacije[:5]:\n    print(k)",
+        "output": "Ukupno kombinacija: 35\n(1, 2, 3)\n(1, 2, 4)\n(1, 2, 5)\n(1, 2, 6)\n(1, 2, 7)"
+      }
+    ]
+  },
+  {
+    "name": "functools",
+    "category": "Strukture",
+    "level": [
+      "osnovno",
+      "srednje",
+      "napredno"
+    ],
+    "builtin/pip_install": "builtin",
+    "builtin": true,
+    "pip_install": null,
+    "import": "from functools import reduce, lru_cache",
+    "description": "Alati za funkcionalno programiranje: reduce, lru_cache, partial.",
+    "docs": "https://docs.python.org/3/library/functools.html",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "reduce(func, iterable)",
+        "description": "Reducira sekvencu na jednu vrijednost.",
+        "parameters": "func: funkcija(a,b), iterable: sekvenca",
+        "code": "from functools import reduce\nbroj = reduce(lambda a, b: a * b, [1, 2, 3, 4, 5])\nprint(broj)",
+        "output": "120"
+      },
+      {
+        "level": "srednje",
+        "title": "@lru_cache(maxsize)",
+        "description": "Kešira rezultate funkcije (memoizacija).",
+        "parameters": "maxsize: max broj keširanih rezultata",
+        "code": "from functools import lru_cache\n\n@lru_cache(maxsize=128)\ndef fib(n):\n    if n < 2: return n\n    return fib(n-1) + fib(n-2)\n\nprint(fib(100))",
+        "output": "354224848179261915075"
+      },
+      {
+        "level": "srednje",
+        "title": "partial(func, *args)",
+        "description": "Stvara novu funkciju s unaprijed postavljenim argumentima.",
+        "parameters": "func: originalna funkcija, *args: fiksirani argumenti",
+        "code": "from functools import partial\ndef potencija(baza, exp):\n    return baza ** exp\n\nkvadrat = partial(potencija, exp=2)\nprint(kvadrat(5))",
+        "output": "25"
+      },
+      {
+        "level": "napredno",
+        "title": "Fibonacci s cachingom",
+        "description": "Real-world: usporedba brzine s i bez cache-a.",
+        "parameters": null,
+        "code": "from functools import lru_cache\nimport time\n\n@lru_cache(maxsize=None)\ndef fib_brzi(n):\n    if n < 2: return n\n    return fib_brzi(n-1) + fib_brzi(n-2)\n\nstart = time.perf_counter()\nprint(fib_brzi(300))\nend = time.perf_counter()\nprint(f'Vrijeme: {end-start:.6f}s')",
+        "output": "222232244629420445529739893461909...\nVrijeme: 0.000123s"
+      }
+    ]
+  },
+  {
+    "name": "copy",
+    "category": "Strukture",
+    "level": [
+      "osnovno",
+      "napredno"
+    ],
+    "builtin/pip_install": "builtin",
+    "builtin": true,
+    "pip_install": null,
+    "import": "import copy",
+    "description": "Plitko i duboko kopiranje objekata.",
+    "docs": "https://docs.python.org/3/library/copy.html",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "copy.copy(obj)",
+        "description": "Plitka kopija objekta.",
+        "parameters": "obj: objekt za kopiranje",
+        "code": "import copy\noriginal = [1, [2, 3]]\nkopija = copy.copy(original)\nkopija[0] = 99\nprint(original)\nprint(kopija)",
+        "output": "[1, [2, 3]]\n[99, [2, 3]]"
+      },
+      {
+        "level": "osnovno",
+        "title": "copy.deepcopy(obj)",
+        "description": "Duboka kopija (kopira i ugniježčene objekte).",
+        "parameters": "obj: objekt za duboko kopiranje",
+        "code": "import copy\noriginal = [1, [2, 3]]\nkopija = copy.deepcopy(original)\nkopija[1][0] = 99\nprint(original)\nprint(kopija)",
+        "output": "[1, [2, 3]]\n[1, [99, 3]]"
+      },
+      {
+        "level": "napredno",
+        "title": "Undo sustav",
+        "description": "Real-world: jednostavni undo mehanizam koristeči deepcopy.",
+        "parameters": null,
+        "code": "import copy\n\nclass Editor:\n    def __init__(self):\n        self.tekst = ''\n        self.povijest = []\n\n     def napisi(self, novi_tekst):\n         self.povijest.append(copy.deepcopy(self.tekst))\n         self.tekst += novi_tekst\n\n     def undo(self):\n         if self.povijest:\n             self.tekst = self.povijest.pop()\n\ne = Editor()\ne.napisi('Bok ')\ne.napisi('svijete!')\nprint(e.tekst)\ne.undo()\nprint(e.tekst)",
+        "output": "Bok svijete!\nBok"
+      }
+    ]
+  },
+  {
+    "name": "enum",
+    "category": "Strukture",
+    "level": [
+      "osnovno",
+      "napredno"
+    ],
+    "builtin/pip_install": "builtin",
+    "builtin": true,
+    "pip_install": null,
+    "import": "from enum import Enum, auto",
+    "description": "Definiranje enumeracija — skupova imenovanih konstanti.",
+    "docs": "https://docs.python.org/3/library/enum.html",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "class Boja(Enum)",
+        "description": "Definira enum s fiksnim vrijednostima.",
+        "parameters": null,
+        "code": "from enum import Enum\n\nclass Boja(Enum):\n    CRVENA = 1\n    ZELENA = 2\n    PLAVA = 3\n\nprint(Boja.CRVENA)\nprint(Boja.CRVENA.value)",
+        "output": "Boja.CRVENA\n1"
+      },
+      {
+        "level": "osnovno",
+        "title": "auto()",
+        "description": "Automatski dodjeljuje vrijednosti.",
+        "parameters": null,
+        "code": "from enum import Enum, auto\n\nclass Status(Enum):\n    AKTIVAN = auto()\n    NEAKTIVAN = auto()\n    OBRISAN = auto()\n\nfor s in Status:\n    print(f'{s.name} = {s.value}')",
+        "output": "AKTIVAN = 1\nNEAKTIVAN = 2\nOBRISAN = 3"
+      },
+      {
+        "level": "napredno",
+        "title": "Sustav statusa narudžbe",
+        "description": "Real-world: pračenje statusa narudžbe.",
+        "parameters": null,
+        "code": "from enum import Enum\n\nclass StatusNarudzbe(Enum):\n    NOVA = 'nova'\n    PLACENA = 'placena'\n    POSLANA = 'poslana'\n    DOSTAVLJENA = 'dostavljena'\n\nclass Narudzba:\n    def __init__(self, id):\n        self.id = id\n        self.status = StatusNarudzbe.NOVA\n\n     def plati(self):\n         self.status = StatusNarudzbe.PLACENA\n\nn = Narudzba(1)\nn.plati()\nprint(f'Narudžba #{n.id}: {n.status.value}')",
+        "output": "Narudžba #1: placena"
+      }
+    ]
+  },
+  {
+    "name": "typing",
+    "category": "Strukture",
+    "level": [
+      "osnovno",
+      "napredno"
+    ],
+    "builtin/pip_install": "builtin",
+    "builtin": true,
+    "pip_install": null,
+    "import": "from typing import List, Dict, Optional, Tuple",
+    "description": "Type hints — anotacije tipova za bolju čitljivost i IDE podršku.",
+    "docs": "https://docs.python.org/3/library/typing.html",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "Osnovni tipovi",
+        "description": "Anotacija parametara i povratnih vrijednosti.",
+        "parameters": null,
+        "code": "def pozdrav(ime: str) -> str:\n    return f'Bok, {ime}!'\n\ndef zbroji(a: int, b: int) -> int:\n    return a + b\n\nprint(pozdrav('Ana'))\nprint(zbroji(2, 3))",
+        "output": "Bok, Ana!\n5"
+      },
+      {
+        "level": "osnovno",
+        "title": "List, Dict, Optional",
+        "description": "Kompleksniji tipovi.",
+        "parameters": null,
+        "code": "from typing import List, Dict, Optional\n\ndef prosjek(brojevi: List[float]) -> float:\n    return sum(brojevi) / len(brojevi)\n\ndef info(podaci: Dict[str, int]) -> None:\n    for k, v in podaci.items():\n        print(f'{k}: {v}')\n\nprint(prosjek([1.0, 2.0, 3.0]))",
+        "output": "2.0"
+      },
+      {
+        "level": "napredno",
+        "title": "Tipizirani API klijent",
+        "description": "Real-world: korištenje type hints za API wrapper.",
+        "parameters": null,
+        "code": "from typing import List, Optional, Dict, Any\nfrom dataclasses import dataclass\n\n@dataclass\nclass Korisnik:\n    id: int\n    ime: str\n    email: str\n    aktivan: bool = True\n\ndef filtriraj_aktivne(korisnici: List[Korisnik]) -> List[Korisnik]:\n    return [k for k in korisnici if k.aktivan]\n\nkorisnici = [\n    Korisnik(1, 'Ana', 'ana@mail.com'),\n    Korisnik(2, 'Ivan', 'ivan@mail.com', False),\n]\nfor k in filtriraj_aktivne(korisnici):\n    print(f'{k.ime} ({k.email})')",
+        "output": "Ana (ana@mail.com)"
+      }
+    ]
+  },
+  {
+    "name": "abc",
+    "category": "Strukture",
+    "level": [
+      "osnovno",
+      "napredno"
+    ],
+    "builtin/pip_install": "builtin",
+    "builtin": true,
+    "pip_install": null,
+    "import": "from abc import ABC, abstractmethod",
+    "description": "Apstraktne bazne klase — definiraju sučelje koje podklase moraju implementirati.",
+    "docs": "https://docs.python.org/3/library/abc.html",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "ABC + @abstractmethod",
+        "description": "Definira apstraktnu klasu s obaveznim metodama.",
+        "parameters": null,
+        "code": "from abc import ABC, abstractmethod\n\nclass Oblik(ABC):\n    @abstractmethod\n    def povrsina(self) -> float:\n        pass\n\nclass Krug(Oblik):\n    def __init__(self, r):\n        self.r = r\n    def povrsina(self) -> float:\n        return 3.14159 * self.r ** 2\n\nk = Krug(5)\nprint(f'Površina: {k.povrsina():.2f}')",
+        "output": "Površina: 78.54"
+      },
+      {
+        "level": "napredno",
+        "title": "Plugin sustav",
+        "description": "Real-world: arhitektura pluginova s apstraktnim klasama.",
+        "parameters": null,
+        "code": "from abc import ABC, abstractmethod\n\nclass Plugin(ABC):\n    @abstractmethod\n    def ime(self) -> str: pass\n    @abstractmethod\n    def izvrsi(self, podaci: str) -> str: pass\n\nclass UpperPlugin(Plugin):\n    def ime(self): return 'UPPERCASE'\n    def izvrsi(self, podaci): return podaci.upper()\n\nclass ReversePlugin(Plugin):\n    def ime(self): return 'REVERSE'\n    def izvrsi(self, podaci): return podaci[::-1]\n\nplugins = [UpperPlugin(), ReversePlugin()]\ntekst = 'Hello'\nfor p in plugins:\n    print(f'{p.ime()}: {p.izvrsi(tekst)}')",
+        "output": "UPPERCASE: HELLO\nREVERSE: olleH"
+      }
+    ]
+  },
+  {
+    "name": "json",
+    "category": "Web",
+    "level": [
+      "osnovno",
+      "srednje",
+      "napredno"
+    ],
+    "builtin/pip_install": "builtin",
+    "builtin": true,
+    "pip_install": null,
+    "import": "import json",
+    "description": "Kodiranje i dekodiranje JSON podataka.",
+    "docs": "https://docs.python.org/3/library/json.html",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "json.dumps(obj)",
+        "description": "Python objekt → JSON string.",
+        "parameters": "obj: dict/list, indent: uvlačenje, ensure_ascii: bool",
+        "code": "import json\npodaci = {'ime': 'Ana', 'godine': 25}\nprint(json.dumps(podaci, ensure_ascii=False))",
+        "output": "{\"ime\": \"Ana\", \"godine\": 25}"
+      },
+      {
+        "level": "osnovno",
+        "title": "json.loads(string)",
+        "description": "JSON string → Python objekt.",
+        "parameters": "string: JSON string",
+        "code": "import json\ns = '{\"ime\": \"Ana\", \"godine\": 25}'\npodaci = json.loads(s)\nprint(podaci['ime'])",
+        "output": "Ana"
+      },
+      {
+        "level": "srednje",
+        "title": "json.dump(obj, file)",
+        "description": "Zapisuje JSON u datoteku.",
+        "parameters": "obj: podaci, file: file objekt",
+        "code": "import json\npodaci = {'korisnici': [{'ime': 'Ana'}, {'ime': 'Ivan'}]}\nwith open('podaci.json', 'w') as f:\n    json.dump(podaci, f, indent=2, ensure_ascii=False)",
+        "output": "(sprema datoteku)"
+      },
+      {
+        "level": "srednje",
+        "title": "json.load(file)",
+        "description": "čita JSON iz datoteke.",
+        "parameters": "file: file objekt",
+        "code": "import json\nwith open('podaci.json') as f:\n    podaci = json.load(f)\nprint(podaci)",
+        "output": "{'korisnici': [...]}"
+      },
+      {
+        "level": "napredno",
+        "title": "Konfiguracijski sustav",
+        "description": "Real-world: čitanje i pisanje konfiguracije iz JSON-a.",
+        "parameters": null,
+        "code": "import json\nfrom pathlib import Path\n\ndef ucitaj_config(path='config.json'):\n    p = Path(path)\n    if p.exists():\n        return json.loads(p.read_text())\n    default = {'tema': 'tamna', 'jezik': 'hr', 'font_size': 14}\n    p.write_text(json.dumps(default, indent=2))\n    return default\n\nconfig = ucitaj_config()\nprint(config)",
+        "output": "{'tema': 'tamna', 'jezik': 'hr', 'font_size': 14}"
+      }
+    ]
+  },
+  {
+    "name": "requests",
+    "category": "Web",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "pip install requests",
+    "builtin": false,
+    "pip_install": "pip install requests",
+    "import": "import requests",
+    "description": "Elegantna HTTP biblioteka za Python — GET, POST, sesije, autentifikacija.",
+    "docs": "https://docs.python-requests.org/en/latest/",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "requests.get()",
+        "description": "Šalje GET zahtjev.",
+        "parameters": "url, params=None, **kwargs",
+        "code": "import requests\n\nr = requests.get('https://httpbin.org/get')\nprint(r.status_code)\nprint(r.json()['origin'][:5] + '...')",
+        "output": "200\n..."
+      },
+      {
+        "level": "osnovno",
+        "title": "requests.post()",
+        "description": "Šalje POST zahtjev s podacima.",
+        "parameters": "url, data=None, json=None",
+        "code": "import requests\n\nr = requests.post('https://httpbin.org/post', json={'ime': 'Ana'})\nprint(r.status_code)",
+        "output": "200"
+      },
+      {
+        "level": "srednje",
+        "title": "requests.Session()",
+        "description": "Sesija za višestruke zahtjeve s istim postavkama.",
+        "parameters": null,
+        "code": "import requests\n\ns = requests.Session()\ns.headers.update({'Authorization': 'Bearer token123'})\n# r = s.get('https://api.example.com/data')\nprint('Sesija kreirana')",
+        "output": "Sesija kreirana"
+      },
+      {
+        "level": "srednje",
+        "title": "Timeout i retry",
+        "description": "Postavljanje timeouta i rukovanje greškama.",
+        "parameters": null,
+        "code": "import requests\n\ntry:\n    r = requests.get('https://httpbin.org/delay/1', timeout=2)\n    print(f'Status: {r.status_code}')\nexcept requests.Timeout:\n    print('Timeout!')",
+        "output": "Status: 200"
+      }
+    ]
+  },
+  {
+    "name": "Flask",
+    "category": "Web",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "pip install Flask",
+    "builtin": false,
+    "pip_install": "pip install Flask",
+    "import": "from flask import Flask",
+    "description": "Lagani web mikro-framework za brzu izradu web aplikacija i API-ja.",
+    "docs": "https://flask.palletsprojects.com/",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "Flask app",
+        "description": "Kreiranje osnovne Flask aplikacije.",
+        "parameters": null,
+        "code": "from flask import Flask\n\napp = Flask(__name__)\n\n@app.route('/')\ndef home():\n    return 'Pozdrav!'\n\n# app.run(debug=True)\nprint('Flask app kreiran')",
+        "output": "Flask app kreiran"
+      },
+      {
+        "level": "osnovno",
+        "title": "Route s parametrima",
+        "description": "Dinamički URL parametri.",
+        "parameters": null,
+        "code": "from flask import Flask\napp = Flask(__name__)\n\n@app.route('/user/<name>')\ndef user(name):\n    return f'Pozdrav, {name}!'\n\nprint('Route definiran')",
+        "output": "Route definiran"
+      },
+      {
+        "level": "srednje",
+        "title": "JSON API",
+        "description": "Kreiranje REST API endpointa.",
+        "parameters": null,
+        "code": "from flask import Flask, jsonify, request\napp = Flask(__name__)\n\n@app.route('/api/items', methods=['GET', 'POST'])\ndef items():\n    if request.method == 'POST':\n        return jsonify(request.json), 201\n    return jsonify([{'id': 1, 'name': 'Item 1'}])\n\nprint('API endpoint definiran')",
+        "output": "API endpoint definiran"
+      }
+    ]
+  },
+  {
+    "name": "FastAPI",
+    "category": "Web",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "pip install fastapi",
+    "builtin": false,
+    "pip_install": "pip install fastapi",
+    "import": "from fastapi import FastAPI",
+    "description": "Moderni, brzi web framework za API-je s automatskom dokumentacijom (Swagger).",
+    "docs": "https://fastapi.tiangolo.com/",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "FastAPI app",
+        "description": "Osnovna FastAPI aplikacija.",
+        "parameters": null,
+        "code": "from fastapi import FastAPI\n\napp = FastAPI()\n\n@app.get('/')\ndef root():\n    return {'poruka': 'Pozdrav!'}\n\n# Pokreni: uvicorn main:app --reload\nprint('FastAPI app kreiran')",
+        "output": "FastAPI app kreiran"
+      },
+      {
+        "level": "osnovno",
+        "title": "Path parametri",
+        "description": "Dinamički parametri u URL-u s tipovima.",
+        "parameters": null,
+        "code": "from fastapi import FastAPI\napp = FastAPI()\n\n@app.get('/items/{item_id}')\ndef read_item(item_id: int, q: str = None):\n    return {'item_id': item_id, 'q': q}\n\nprint('Endpoint s parametrima')",
+        "output": "Endpoint s parametrima"
+      },
+      {
+        "level": "srednje",
+        "title": "Pydantic model",
+        "description": "Validacija podataka s Pydantic modelima.",
+        "parameters": null,
+        "code": "from fastapi import FastAPI\nfrom pydantic import BaseModel\n\napp = FastAPI()\n\nclass Item(BaseModel):\n    name: str\n    price: float\n    is_offer: bool = False\n\n@app.post('/items/')\ndef create_item(item: Item):\n    return item\n\nprint('Model definiran')",
+        "output": "Model definiran"
+      }
+    ]
+  },
+  {
+    "name": "uvicorn",
+    "category": "Web",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "pip install uvicorn",
+    "builtin": false,
+    "pip_install": "pip install uvicorn",
+    "import": "import uvicorn",
+    "description": "Lightning-fast ASGI server za pokretanje FastAPI i drugih async frameworka.",
+    "docs": "https://www.uvicorn.org/",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "uvicorn.run()",
+        "description": "Pokretanje ASGI aplikacije.",
+        "parameters": "app, host='127.0.0.1', port=8000",
+        "code": "import uvicorn\n\n# uvicorn.run('main:app', host='0.0.0.0', port=8000, reload=True)\nprint('Uvicorn server konfiguriran')",
+        "output": "Uvicorn server konfiguriran"
+      },
+      {
+        "level": "srednje",
+        "title": "Konfiguracija",
+        "description": "Napredne opcije: SSL, workers, log level.",
+        "parameters": null,
+        "code": "import uvicorn\n\nconfig = uvicorn.Config('main:app', host='0.0.0.0', port=443,\n    ssl_keyfile='key.pem', ssl_certfile='cert.pem',\n    workers=4, log_level='info')\n# server = uvicorn.Server(config)\n# server.run()\nprint('SSL konfiguracija spremna')",
+        "output": "SSL konfiguracija spremna"
+      }
+    ]
+  },
+  {
+    "name": "httpx",
+    "category": "Web",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "pip install httpx",
+    "builtin": false,
+    "pip_install": "pip install httpx",
+    "import": "import httpx",
+    "description": "Moderni HTTP klijent s podrškom za async/await, HTTP/2 i streaming.",
+    "docs": "https://www.python-httpx.org/",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "httpx.get()",
+        "description": "Sync GET zahtjev.",
+        "parameters": null,
+        "code": "import httpx\n\nr = httpx.get('https://httpbin.org/get')\nprint(r.status_code)",
+        "output": "200"
+      },
+      {
+        "level": "osnovno",
+        "title": "httpx.AsyncClient",
+        "description": "Async HTTP klijent.",
+        "parameters": null,
+        "code": "import httpx\nimport asyncio\n\nasync def fetch():\n    async with httpx.AsyncClient() as client:\n        r = await client.get('https://httpbin.org/get')\n        return r.status_code\n\n# asyncio.run(fetch())\nprint('Async klijent spreman')",
+        "output": "Async klijent spreman"
+      },
+      {
+        "level": "srednje",
+        "title": "HTTP/2 & Streaming",
+        "description": "HTTP/2 podrška i streaming odgovora.",
+        "parameters": null,
+        "code": "import httpx\n\n# HTTP/2\n# client = httpx.Client(http2=True)\n# r = client.get('https://example.com')\n\n# Streaming\n# with httpx.stream('GET', url) as r:\n#     for chunk in r.iter_bytes():\n#         process(chunk)\nprint('HTTP/2 i streaming podržani')",
+        "output": "HTTP/2 i streaming podržani"
+      }
+    ]
+  },
+  {
+    "name": "websockets",
+    "category": "Web",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "pip install websockets",
+    "builtin": false,
+    "pip_install": "pip install websockets",
+    "import": "import websockets",
+    "description": "Biblioteka za WebSocket server i klijent s async/await podrškom.",
+    "docs": "https://websockets.readthedocs.io/",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "WebSocket server",
+        "description": "Kreiranje WebSocket servera.",
+        "parameters": null,
+        "code": "import asyncio\nimport websockets\n\nasync def handler(ws):\n    msg = await ws.recv()\n    await ws.send(f'Echo: {msg}')\n\n# asyncio.run(websockets.serve(handler, 'localhost', 8765))\nprint('WebSocket server definiran')",
+        "output": "WebSocket server definiran"
+      },
+      {
+        "level": "srednje",
+        "title": "WebSocket klijent",
+        "description": "Spajanje na WebSocket server.",
+        "parameters": null,
+        "code": "import asyncio\nimport websockets\n\nasync def client():\n    async with websockets.connect('ws://localhost:8765') as ws:\n        await ws.send('Pozdrav!')\n        odgovor = await ws.recv()\n        print(odgovor)\n\n# asyncio.run(client())\nprint('Klijent spreman')",
+        "output": "Klijent spreman"
+      }
+    ]
+  },
+  {
+    "name": "streamlit",
+    "category": "Web",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "pip install streamlit",
+    "builtin": false,
+    "pip_install": "pip install streamlit",
+    "import": "import streamlit as st",
+    "description": "Najbrži način za izradu data aplikacija — od skripte do web appa u minutama.",
+    "docs": "https://docs.streamlit.io/",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "st.title() / st.write()",
+        "description": "Osnovni prikaz teksta i podataka.",
+        "parameters": null,
+        "code": "import streamlit as st\n\n# st.title('Moja aplikacija')\n# st.write('Pozdrav svijete!')\n# st.write({'ime': 'Ana', 'dob': 25})\nprint('Streamlit app primjer')",
+        "output": "Streamlit app primjer"
+      },
+      {
+        "level": "osnovno",
+        "title": "st.slider() / st.button()",
+        "description": "Interaktivni widgeti.",
+        "parameters": null,
+        "code": "import streamlit as st\n\n# x = st.slider('Odaberi broj', 0, 100, 50)\n# if st.button('Klikni'):\n#     st.write(f'Odabrano: {x}')\nprint('Widgeti definirani')",
+        "output": "Widgeti definirani"
+      },
+      {
+        "level": "srednje",
+        "title": "st.dataframe() / st.chart()",
+        "description": "Prikaz tablica i grafova.",
+        "parameters": null,
+        "code": "import streamlit as st\nimport pandas as pd\n\n# df = pd.DataFrame({'x': [1,2,3], 'y': [10,20,30]})\n# st.dataframe(df)\n# st.line_chart(df)\nprint('DataFrame i chart')",
+        "output": "DataFrame i chart"
+      }
+    ]
+  },
+  {
+    "name": "gradio",
+    "category": "Web",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "pip install gradio",
+    "builtin": false,
+    "pip_install": "pip install gradio",
+    "import": "import gradio as gr",
+    "description": "Brzo kreiranje ML demo sučelja — upload, slider, tekst, audio, video.",
+    "docs": "https://www.gradio.app/docs/",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "gr.Interface()",
+        "description": "Kreiranje sučelja za funkciju.",
+        "parameters": null,
+        "code": "import gradio as gr\n\ndef pozdrav(ime):\n    return f'Pozdrav, {ime}!'\n\n# demo = gr.Interface(fn=pozdrav, inputs='text', outputs='text')\n# demo.launch()\nprint('Gradio interface kreiran')",
+        "output": "Gradio interface kreiran"
+      },
+      {
+        "level": "srednje",
+        "title": "gr.Blocks()",
+        "description": "Napredno sučelje s layoutom.",
+        "parameters": null,
+        "code": "import gradio as gr\n\n# with gr.Blocks() as demo:\n#     inp = gr.Textbox(label='Unos')\n#     out = gr.Textbox(label='Izlaz')\n#     btn = gr.Button('Pretvori')\n#     btn.click(fn=str.upper, inputs=inp, outputs=out)\n# demo.launch()\nprint('Blocks layout')",
+        "output": "Blocks layout"
+      }
+    ]
+  },
+  {
+    "name": "dash",
+    "category": "Web",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "pip install dash",
+    "builtin": false,
+    "pip_install": "pip install dash",
+    "import": "from dash import Dash, html, dcc",
+    "description": "Framework za analitičke web aplikacije s interaktivnim grafovima (Plotly).",
+    "docs": "https://dash.plotly.com/",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "Dash app",
+        "description": "Osnovna Dash aplikacija.",
+        "parameters": null,
+        "code": "from dash import Dash, html, dcc\n\napp = Dash(__name__)\napp.layout = html.Div([\n    html.H1('Dashboard'),\n    dcc.Graph(figure={'data': [{'x': [1,2,3], 'y': [4,1,2], 'type': 'bar'}]})\n])\n\n# app.run(debug=True)\nprint('Dash app kreiran')",
+        "output": "Dash app kreiran"
+      },
+      {
+        "level": "srednje",
+        "title": "Callback",
+        "description": "Interaktivni callbacks.",
+        "parameters": null,
+        "code": "from dash import Dash, html, dcc, Input, Output\n\napp = Dash(__name__)\napp.layout = html.Div([\n    dcc.Input(id='input', value='tekst'),\n    html.Div(id='output')\n])\n\n@app.callback(Output('output', 'children'), Input('input', 'value'))\ndef update(value):\n    return f'Unijeli ste: {value}'\n\nprint('Callback definiran')",
+        "output": "Callback definiran"
+      }
+    ]
+  },
+  {
+    "name": "PIL (Pillow)",
+    "category": "Vizualizacija",
+    "level": [
+      "osnovno",
+      "srednje",
+      "napredno"
+    ],
+    "builtin/pip_install": "pip install Pillow",
+    "builtin": false,
+    "pip_install": "pip install Pillow",
+    "import": "from PIL import Image, ImageFilter, ImageDraw",
+    "description": "Obrada slika: otvaranje, rezanje, transformacije, filtri i spremanje.",
+    "docs": "https://pillow.readthedocs.io/en/stable/",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "Image.open(path)",
+        "description": "Otvara sliku iz datoteke.",
+        "parameters": "path: put do slike",
+        "code": "from PIL import Image\nimg = Image.open('slika.jpg')\nprint(img.size)\nprint(img.format)",
+        "output": "(800, 600)\nJPEG"
+      },
+      {
+        "level": "osnovno",
+        "title": "img.resize((w, h))",
+        "description": "Mijenja veličinu slike.",
+        "parameters": "size: (širina, visina)",
+        "code": "from PIL import Image\nimg = Image.open('slika.jpg')\nmala = img.resize((200, 150))\nmala.save('mala_slika.jpg')",
+        "output": "(sprema umanjenu sliku)"
+      },
+      {
+        "level": "osnovno",
+        "title": "img.save(path)",
+        "description": "Sprema sliku u datoteku.",
+        "parameters": "path: put s ekstenzijom",
+        "code": "from PIL import Image\nimg = Image.open('slika.jpg')\nimg.save('kopija.png')",
+        "output": "(sprema u PNG formatu)"
+      },
+      {
+        "level": "srednje",
+        "title": "img.crop(box)",
+        "description": "Izrezuje dio slike.",
+        "parameters": "box: (left, upper, right, lower)",
+        "code": "from PIL import Image\nimg = Image.open('slika.jpg')\nizrezak = img.crop((100, 100, 400, 300))\nizrezak.save('izrezak.jpg')",
+        "output": "(sprema izrezak)"
+      },
+      {
+        "level": "srednje",
+        "title": "img.filter(filter)",
+        "description": "Primjenjuje filtar na sliku.",
+        "parameters": "filter: ImageFilter objekt",
+        "code": "from PIL import Image, ImageFilter\nimg = Image.open('slika.jpg')\nmutna = img.filter(ImageFilter.GaussianBlur(5))\nmutna.save('mutna.jpg')",
+        "output": "(sprema zamu■enu sliku)"
+      },
+      {
+        "level": "napredno",
+        "title": "Batch obrada slika",
+        "description": "Real-world: automatska obrada svih slika u mapi.",
+        "parameters": null,
+        "code": "from PIL import Image\nfrom pathlib import Path\n\ndef obradi_slike(mapa, max_sirina=800):\n    for p in Path(mapa).glob('*.jpg'):\n        img = Image.open(p)\n        if img.width > max_sirina:\n            ratio = max_sirina / img.width\n            nova_visina = int(img.height * ratio)\n            img = img.resize((max_sirina, nova_visina))\n        img.save(f'obradjene/{p.name}')\n        print(f'Obra■eno: {p.name}')\n\n# obradi_slike('slike')",
+        "output": "Obra■eno: foto1.jpg\nObra■eno: foto2.jpg\n..."
+      }
+    ]
+  },
+  {
+    "name": "matplotlib",
+    "category": "Vizualizacija",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "pip install matplotlib",
+    "builtin": false,
+    "pip_install": "pip install matplotlib",
+    "import": "import matplotlib.pyplot as plt",
+    "description": "Najpoznatija Python biblioteka za statičke, animirane i interaktivne vizualizacije.",
+    "docs": "https://matplotlib.org/stable/contents.html",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "plt.plot()",
+        "description": "Crtanje linijskog grafa.",
+        "parameters": "x, y, format_string",
+        "code": "import matplotlib.pyplot as plt\n\nplt.plot([1, 2, 3, 4], [1, 4, 2, 3])\nplt.title('Moj graf')\nplt.xlabel('X os')\nplt.ylabel('Y os')\n# plt.show()\nprint('Graf kreiran')",
+        "output": "Graf kreiran"
+      },
+      {
+        "level": "osnovno",
+        "title": "plt.bar()",
+        "description": "Stupčasti grafikon.",
+        "parameters": null,
+        "code": "import matplotlib.pyplot as plt\n\nplt.bar(['A', 'B', 'C'], [10, 20, 15])\nplt.title('Stup■asti graf')\n# plt.show()\nprint('Bar chart kreiran')",
+        "output": "Bar chart kreiran"
+      },
+      {
+        "level": "srednje",
+        "title": "Subplots",
+        "description": "Više grafova na jednoj slici.",
+        "parameters": null,
+        "code": "import matplotlib.pyplot as plt\n\nfig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 4))\nax1.plot([1,2,3], [1,4,9])\nax1.set_title('Kvadrati')\nax2.bar(['X','Y','Z'], [3,7,5])\nax2.set_title('Stupci')\n# plt.tight_layout()\n# plt.show()\nprint('Subplots kreirani')",
+        "output": "Subplots kreirani"
+      }
+    ]
+  },
+  {
+    "name": "plotly",
+    "category": "Vizualizacija",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "pip install plotly",
+    "builtin": false,
+    "pip_install": "pip install plotly",
+    "import": "import plotly.express as px",
+    "description": "Interaktivni grafovi za web — scatter, bar, 3D, mape, animacije.",
+    "docs": "https://plotly.com/python/",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "px.scatter()",
+        "description": "Scatter plot.",
+        "parameters": null,
+        "code": "import plotly.express as px\n\n# fig = px.scatter(x=[1,2,3,4], y=[10,11,12,13], title='Scatter')\n# fig.show()\nprint('Plotly scatter definiran')",
+        "output": "Plotly scatter definiran"
+      },
+      {
+        "level": "osnovno",
+        "title": "px.bar()",
+        "description": "Interaktivni stupčasti graf.",
+        "parameters": null,
+        "code": "import plotly.express as px\n\n# fig = px.bar(x=['A','B','C'], y=[10,20,15], title='Bar')\n# fig.show()\nprint('Plotly bar definiran')",
+        "output": "Plotly bar definiran"
+      },
+      {
+        "level": "srednje",
+        "title": "3D grafovi",
+        "description": "Trodimenzionalni scatter plot.",
+        "parameters": null,
+        "code": "import plotly.express as px\nimport numpy as np\n\n# fig = px.scatter_3d(x=np.random.rand(50), y=np.random.rand(50),\n#     z=np.random.rand(50), color=np.random.rand(50))\n# fig.show()\nprint('3D scatter spreman')",
+        "output": "3D scatter spreman"
+      }
+    ]
+  },
+  {
+    "name": "numpy",
+    "category": "Znanost",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "pip install numpy",
+    "builtin": false,
+    "pip_install": "pip install numpy",
+    "import": "import numpy as np",
+    "description": "Temeljna biblioteka za numeričko računanje — nizovi, matrice, linearna algebra.",
+    "docs": "https://numpy.org/doc/stable/",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "np.array()",
+        "description": "Kreiranje NumPy niza.",
+        "parameters": "object, dtype=None",
+        "code": "import numpy as np\n\na = np.array([1, 2, 3, 4, 5])\nprint(a)\nprint(a.shape)\nprint(a.dtype)",
+        "output": "[1 2 3 4 5]\n(5,)\nint64"
+      },
+      {
+        "level": "osnovno",
+        "title": "np.zeros() / np.ones()",
+        "description": "Nizovi ispunjeni nulama ili jedinicama.",
+        "parameters": null,
+        "code": "import numpy as np\n\nprint(np.zeros((2, 3)))\nprint(np.ones((2, 2)))",
+        "output": "[[0. 0. 0.]\n [0. 0. 0.]]\n[[1. 1.]\n [1. 1.]]"
+      },
+      {
+        "level": "osnovno",
+        "title": "Operacije nad nizovima",
+        "description": "Vektorizirane operacije.",
+        "parameters": null,
+        "code": "import numpy as np\n\na = np.array([1, 2, 3])\nprint(a * 2)\nprint(a + 10)\nprint(np.sum(a))",
+        "output": "[2 4 6]\n[11 12 13]\n6"
+      },
+      {
+        "level": "srednje",
+        "title": "Matrice i linearna algebra",
+        "description": "Matrične operacije.",
+        "parameters": null,
+        "code": "import numpy as np\n\nA = np.array([[1, 2], [3, 4]])\nB = np.array([[5, 6], [7, 8]])\nprint(A @ B) # Množenje matrica\nprint(np.linalg.det(A)) # Determinanta",
+        "output": "[[19 22]\n [43 50]]\n-2.0"
+      }
+    ]
+  },
+  {
+    "name": "pandas",
+    "category": "Znanost",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "pip install pandas",
+    "builtin": false,
+    "pip_install": "pip install pandas",
+    "import": "import pandas as pd",
+    "description": "Biblioteka za analizu i manipulaciju podataka — DataFrame, CSV, groupby, merge.",
+    "docs": "https://pandas.pydata.org/docs/",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "pd.DataFrame()",
+        "description": "Kreiranje DataFrame tablice.",
+        "parameters": null,
+        "code": "import pandas as pd\n\ndf = pd.DataFrame({\n    'ime': ['Ana', 'Marko', 'Iva'],\n    'dob': [25, 30, 22],\n    'grad': ['Zagreb', 'Split', 'Rijeka']\n})\nprint(df)",
+        "output": "      ime    dob      grad\n0     Ana     25    Zagreb\n1   Marko     30     Split\n2     Iva     22    Rijeka"
+      },
+      {
+        "level": "osnovno",
+        "title": "Filtriranje",
+        "description": "Filtriranje redaka po uvjetu.",
+        "parameters": null,
+        "code": "import pandas as pd\n\ndf = pd.DataFrame({'ime': ['Ana','Marko','Iva'], 'dob': [25,30,22]})\nprint(df[df['dob'] > 23])",
+        "output": "      ime    dob\n0     Ana     25\n1   Marko     30"
+      },
+      {
+        "level": "srednje",
+        "title": "groupby()",
+        "description": "Grupiranje i agregacija podataka.",
+        "parameters": null,
+        "code": "import pandas as pd\n\ndf = pd.DataFrame({'odjel': ['IT','IT','HR','HR'], 'placa': [5000,6000,4000,4500]})\nprint(df.groupby('odjel')['placa'].mean())",
+        "output": "odjel\nHR    4250.0\nIT    5500.0\nName: placa, dtype: float64"
+      }
+    ]
+  },
+  {
+    "name": "polars",
+    "category": "Znanost",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "pip install polars",
+    "builtin": false,
+    "pip_install": "pip install polars",
+    "import": "import polars as pl",
+    "description": "Brza DataFrame biblioteka napisana u Rustu — alternativa pandasima za velike podatke.",
+    "docs": "https://docs.pola.rs/",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "pl.DataFrame()",
+        "description": "Kreiranje Polars DataFramea.",
+        "parameters": null,
+        "code": "import polars as pl\n\ndf = pl.DataFrame({\n    'ime': ['Ana', 'Marko', 'Iva'],\n    'dob': [25, 30, 22]\n})\nprint(df)",
+        "output": "shape: (3, 2)\n■■■■■■■■■■■■■■■\n■ ime   ■ dob ■\n■ str   ■ i64 ■\n■■■■■■■■■■■■■■■\n■ Ana   ■ 25 ■\n■ Marko ■ 30 ■\n■ Iva   ■ 22 ■\n■■■■■■■■■■■■■■■"
+      },
+      {
+        "level": "srednje",
+        "title": "Lazy evaluacija",
+        "description": "Lazy mod za optimizirane upite.",
+        "parameters": null,
+        "code": "import polars as pl\n\ndf = pl.DataFrame({'x': [1,2,3,4,5], 'y': [10,20,30,40,50]})\nresult = df.lazy().filter(pl.col('x') > 2).select('y').collect()\nprint(result)",
+        "output": "shape: (3, 1)\n■■■■■■■\n■ y   ■\n■ i64 ■\n■■■■■■■\n■ 30 ■\n■ 40 ■\n■ 50 ■\n■■■■■■■"
+      }
+    ]
+  },
+  {
+    "name": "tkinter",
+    "category": "GUI",
+    "level": [
+      "osnovno",
+      "srednje",
+      "napredno"
+    ],
+    "builtin/pip_install": "builtin",
+    "builtin": true,
+    "pip_install": null,
+    "import": "import tkinter as tk from tkinter import ttk, messagebox",
+    "description": "Standardna Python biblioteka za izradu grafičkih sučelja (GUI).",
+    "docs": "https://docs.python.org/3/library/tkinter.html",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "tk.Tk()",
+        "description": "Stvara glavni prozor aplikacije.",
+        "parameters": null,
+        "code": "import tkinter as tk\nroot = tk.Tk()\nroot.title('Moja aplikacija')\nroot.geometry('400x300')\nroot.mainloop()",
+        "output": "(otvara prozor)"
+      },
+      {
+        "level": "osnovno",
+        "title": "tk.Label(parent, text)",
+        "description": "Prikazuje tekst u prozoru.",
+        "parameters": "parent: roditeljski widget, text: tekst",
+        "code": "import tkinter as tk\nroot = tk.Tk()\nlabel = tk.Label(root, text='Pozdrav!', font=('Arial', 16))\nlabel.pack(pady=20)\nroot.mainloop()",
+        "output": "(prikazuje tekst)"
+      },
+      {
+        "level": "osnovno",
+        "title": "tk.Button(parent, text, command)",
+        "description": "Gumb koji poziva funkciju.",
+        "parameters": "parent, text, command: callback funkcija",
+        "code": "import tkinter as tk\nroot = tk.Tk()\ndef klik():\n    print('Kliknuto!')\nbtn = tk.Button(root, text='Klikni me', command=klik)\nbtn.pack()\nroot.mainloop()",
+        "output": "(gumb u prozoru)"
+      },
+      {
+        "level": "srednje",
+        "title": "tk.Entry(parent)",
+        "description": "Polje za unos teksta.",
+        "parameters": "parent: roditeljski widget",
+        "code": "import tkinter as tk\nroot = tk.Tk()\nentry = tk.Entry(root)\nentry.pack()\ndef dohvati():\n    print(entry.get())\ntk.Button(root, text='OK', command=dohvati).pack()\nroot.mainloop()",
+        "output": "(polje za unos)"
+      },
+      {
+        "level": "srednje",
+        "title": "messagebox",
+        "description": "Prikazuje dijalog poruke.",
+        "parameters": null,
+        "code": "from tkinter import messagebox\nmessagebox.showinfo('Naslov', 'Poruka!')\nmessagebox.askyesno('Pitanje', 'Nastaviti?')",
+        "output": "(dijalog prozor)"
+      },
+      {
+        "level": "napredno",
+        "title": "Todo aplikacija",
+        "description": "Real-world: jednostavna todo lista.",
+        "parameters": null,
+        "code": "import tkinter as tk\n\nclass TodoApp:\n    def __init__(self):\n        self.root = tk.Tk()\n        self.root.title('Todo Lista')\n        self.root.geometry('300x400')\n\n          self.entry = tk.Entry(self.root, width=30)\n          self.entry.pack(pady=10)\n\n          tk.Button(self.root, text='Dodaj', command=self.dodaj).pack()\n\n          self.lista = tk.Listbox(self.root, width=35, height=15)\n          self.lista.pack(pady=10)\n\n          tk.Button(self.root, text='Obriši', command=self.obrisi).pack()\n\n     def dodaj(self):\n         tekst = self.entry.get()\n         if tekst:\n             self.lista.insert(tk.END, tekst)\n             self.entry.delete(0, tk.END)\n\n     def obrisi(self):\n         sel = self.lista.curselection()\n         if sel:\n             self.lista.delete(sel)\n\napp = TodoApp()\napp.root.mainloop()",
+        "output": "(todo aplikacija s GUI)"
+      }
+    ]
+  },
+  {
+    "name": "flet",
+    "category": "GUI",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "pip install flet",
+    "builtin": false,
+    "pip_install": "pip install flet",
+    "import": "import flet as ft",
+    "description": "Flutter-based framework za desktop, web i mobilne aplikacije u Pythonu.",
+    "docs": "https://flet.dev/docs/",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "ft.app()",
+        "description": "Pokretanje Flet aplikacije.",
+        "parameters": null,
+        "code": "import flet as ft\n\ndef main(page: ft.Page):\n    page.title = 'Moja app'\n    page.add(ft.Text('Pozdrav!'))\n\n# ft.app(target=main)\nprint('Flet app definiran')",
+        "output": "Flet app definiran"
+      },
+      {
+        "level": "srednje",
+        "title": "Interakcija",
+        "description": "Gumbi i event handling.",
+        "parameters": null,
+        "code": "import flet as ft\n\ndef main(page: ft.Page):\n    def klik(e):\n        page.add(ft.Text('Kliknuto!'))\n    page.add(ft.ElevatedButton('Klikni', on_click=klik))\n\n# ft.app(target=main)\nprint('Event handling')",
+        "output": "Event handling"
+      }
+    ]
+  },
+  {
+    "name": "customtkinter",
+    "category": "GUI",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "pip install customtkinter",
+    "builtin": false,
+    "pip_install": "pip install customtkinter",
+    "import": "import customtkinter as ctk",
+    "description": "Moderni izgled za Tkinter aplikacije — tamna/svijetla tema, zaobljeni widgeti.",
+    "docs": "https://customtkinter.tomschimansky.com/documentation/",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "CTk App",
+        "description": "Kreiranje moderne desktop aplikacije.",
+        "parameters": null,
+        "code": "import customtkinter as ctk\n\napp = ctk.CTk()\napp.title('Moja App')\napp.geometry('400x300')\n\nlabel = ctk.CTkLabel(app, text='Pozdrav!')\nlabel.pack(pady=20)\n\n# app.mainloop()\nprint('CustomTkinter app kreiran')",
+        "output": "CustomTkinter app kreiran"
+      },
+      {
+        "level": "srednje",
+        "title": "Teme i widgeti",
+        "description": "Tamna tema i napredni widgeti.",
+        "parameters": null,
+        "code": "import customtkinter as ctk\n\nctk.set_appearance_mode('dark')\nctk.set_default_color_theme('blue')\n\napp = ctk.CTk()\nslider = ctk.CTkSlider(app, from_=0, to=100)\nswitch = ctk.CTkSwitch(app, text='Opcija')\nprogress = ctk.CTkProgressBar(app)\n\nprint('Teme i widgeti konfigurirani')",
+        "output": "Teme i widgeti konfigurirani"
+      }
+    ]
+  },
+  {
+    "name": "PySide6",
+    "category": "GUI",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "pip install PySide6",
+    "builtin": false,
+    "pip_install": "pip install PySide6",
+    "import": "from PySide6.QtWidgets import QApplication, QMainWindow",
+    "description": "Službeni Qt za Python — profesionalne desktop aplikacije s bogatim widgetima.",
+    "docs": "https://doc.qt.io/qtforpython-6/",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "QApplication",
+        "description": "Osnovna Qt aplikacija.",
+        "parameters": null,
+        "code": "from PySide6.QtWidgets import QApplication, QMainWindow, QLabel\nimport sys\n\n# app = QApplication(sys.argv)\n# window = QMainWindow()\n# window.setWindowTitle('PySide6 App')\n# label = QLabel('Pozdrav!', window)\n# window.show()\n# app.exec()\nprint('PySide6 app definiran')",
+        "output": "PySide6 app definiran"
+      },
+      {
+        "level": "srednje",
+        "title": "Signali i slotovi",
+        "description": "Event sistem u Qt-u.",
+        "parameters": null,
+        "code": "from PySide6.QtWidgets import QApplication, QPushButton\n\n# app = QApplication([])\n# btn = QPushButton('Klikni')\n# btn.clicked.connect(lambda: print('Kliknuto!'))\n# btn.show()\n# app.exec()\nprint('Signali i slotovi')",
+        "output": "Signali i slotovi"
+      }
+    ]
+  },
+  {
+    "name": "sqlite3",
+    "category": "Baze podataka",
+    "level": [
+      "osnovno",
+      "srednje",
+      "napredno"
+    ],
+    "builtin/pip_install": "builtin",
+    "builtin": true,
+    "pip_install": null,
+    "import": "import sqlite3",
+    "description": "Ugračena SQLite baza podataka — lagana i bez instalacije.",
+    "docs": "https://docs.python.org/3/library/sqlite3.html",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "sqlite3.connect(db)",
+        "description": "Spaja se na bazu (stvara ako ne postoji).",
+        "parameters": "db: put do baze ili ':memory:'",
+        "code": "import sqlite3\nconn = sqlite3.connect('moja_baza.db')\ncursor = conn.cursor()\nprint('Spojeno!')\nconn.close()",
+        "output": "Spojeno!"
+      },
+      {
+        "level": "osnovno",
+        "title": "cursor.execute(sql)",
+        "description": "Izvršava SQL upit.",
+        "parameters": "sql: SQL naredba, params: parametri",
+        "code": "import sqlite3\nconn = sqlite3.connect(':memory:')\nc = conn.cursor()\nc.execute('CREATE TABLE korisnici (ime TEXT, dob INTEGER)')\nc.execute('INSERT INTO korisnici VALUES (?, ?)', ('Ana', 25))\nconn.commit()\nprint('Tablica kreirana!')",
+        "output": "Tablica kreirana!"
+      },
+      {
+        "level": "osnovno",
+        "title": "cursor.fetchall()",
+        "description": "Dohvača sve rezultate upita.",
+        "parameters": null,
+        "code": "import sqlite3\nconn = sqlite3.connect(':memory:')\nc = conn.cursor()\nc.execute('CREATE TABLE t (x INT)')\nfor i in range(5):\n    c.execute('INSERT INTO t VALUES (?)', (i,))\nc.execute('SELECT * FROM t')\nprint(c.fetchall())",
+        "output": "[(0,), (1,), (2,), (3,), (4,)]"
+      },
+      {
+        "level": "srednje",
+        "title": "Context manager",
+        "description": "Automatski commit/rollback s with.",
+        "parameters": null,
+        "code": "import sqlite3\n\nwith sqlite3.connect(':memory:') as conn:\n    conn.execute('CREATE TABLE t (name TEXT)')\n    conn.execute('INSERT INTO t VALUES (?)', ('Ana',))\n    for row in conn.execute('SELECT * FROM t'):\n        print(row)",
+        "output": "('Ana',)"
+      },
+      {
+        "level": "srednje",
+        "title": "Row factory",
+        "description": "Pristup stupcima po imenu.",
+        "parameters": null,
+        "code": "import sqlite3\nconn = sqlite3.connect(':memory:')\nconn.row_factory = sqlite3.Row\nc = conn.cursor()\nc.execute('CREATE TABLE t (ime TEXT, dob INT)')\nc.execute('INSERT INTO t VALUES (?, ?)', ('Ana', 25))\nc.execute('SELECT * FROM t')\nrow = c.fetchone()\nprint(row['ime'], row['dob'])",
+        "output": "Ana 25"
+      },
+      {
+        "level": "napredno",
+        "title": "Mini kontakt baza",
+        "description": "Real-world: CRUD operacije za kontakte.",
+        "parameters": null,
+        "code": "import sqlite3\n\nclass KontaktBaza:\n    def __init__(self):\n        self.conn = sqlite3.connect(':memory:')\n        self.conn.execute('''\n             CREATE TABLE kontakti (\n                 id INTEGER PRIMARY KEY AUTOINCREMENT,\n                 ime TEXT, email TEXT, tel TEXT)\n        ''')\n\n     def dodaj(self, ime, email, tel):\n         self.conn.execute(\n             'INSERT INTO kontakti (ime, email, tel) VALUES (?,?,?)',\n             (ime, email, tel))\n         self.conn.commit()\n\n     def svi(self):\n         return self.conn.execute('SELECT * FROM kontakti').fetchall()\n\ndb = KontaktBaza()\ndb.dodaj('Ana', 'ana@mail.com', '091-111')\ndb.dodaj('Ivan', 'ivan@mail.com', '092-222')\nfor k in db.svi():\n    print(k)",
+        "output": "(1, 'Ana', 'ana@mail.com', '091-111')\n(2, 'Ivan', 'ivan@mail.com', '092-222')"
+      }
+    ]
+  },
+  {
+    "name": "SQLAlchemy",
+    "category": "Baze podataka",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "pip install sqlalchemy",
+    "builtin": false,
+    "pip_install": "pip install sqlalchemy",
+    "import": "from sqlalchemy import create_engine",
+    "description": "Python SQL toolkit i ORM — mapiranje objekata na baze podataka.",
+    "docs": "https://docs.sqlalchemy.org/",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "create_engine()",
+        "description": "Kreiranje konekcije na bazu.",
+        "parameters": null,
+        "code": "from sqlalchemy import create_engine, text\n\nengine = create_engine('sqlite:///:memory:')\nwith engine.connect() as conn:\n    conn.execute(text('CREATE TABLE test (id INT, name TEXT)'))\n    conn.execute(text(\"INSERT INTO test VALUES (1, 'Ana')\"))\n    result = conn.execute(text('SELECT * FROM test'))\n    print(result.fetchall())\n    conn.commit()",
+        "output": "[(1, 'Ana')]"
+      },
+      {
+        "level": "srednje",
+        "title": "ORM Model",
+        "description": "Definiranje tablica kao Python klasa.",
+        "parameters": null,
+        "code": "from sqlalchemy import create_engine, Column, Integer, String\nfrom sqlalchemy.orm import declarative_base, Session\n\nBase = declarative_base()\n\nclass User(Base):\n    __tablename__ = 'users'\n    id = Column(Integer, primary_key=True)\n    name = Column(String)\n\nengine = create_engine('sqlite:///:memory:')\nBase.metadata.create_all(engine)\n\nwith Session(engine) as s:\n    s.add(User(name='Ana'))\n    s.commit()\n    print(s.query(User).first().name)",
+        "output": "Ana"
+      }
+    ]
+  },
+  {
+    "name": "unittest",
+    "category": "Testiranje",
+    "level": [
+      "osnovno",
+      "srednje",
+      "napredno"
+    ],
+    "builtin/pip_install": "builtin",
+    "builtin": true,
+    "pip_install": null,
+    "import": "import unittest",
+    "description": "Ugračeni framework za pisanje i pokretanje testova.",
+    "docs": "https://docs.python.org/3/library/unittest.html",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "unittest.TestCase",
+        "description": "Bazna klasa za testove.",
+        "parameters": null,
+        "code": "import unittest\n\nclass TestMatematika(unittest.TestCase):\n    def test_zbrajanje(self):\n        self.assertEqual(2 + 2, 4)\n\n     def test_oduzimanje(self):\n         self.assertEqual(5 - 3, 2)\n\n# unittest.main()",
+        "output": "OK (2 testa)"
+      },
+      {
+        "level": "osnovno",
+        "title": "Assert metode",
+        "description": "Provjere u testovima.",
+        "parameters": null,
+        "code": "import unittest\n\nclass TestAssert(unittest.TestCase):\n    def test_jednakost(self):\n        self.assertEqual(1 + 1, 2)\n    def test_istina(self):\n        self.assertTrue(3 > 2)\n    def test_u_listi(self):\n        self.assertIn('a', 'banana')\n    def test_none(self):\n        self.assertIsNone(None)",
+        "output": "OK (4 testa)"
+      },
+      {
+        "level": "srednje",
+        "title": "setUp / tearDown",
+        "description": "Priprema i čiščenje prije/poslije svakog testa.",
+        "parameters": null,
+        "code": "import unittest\n\nclass TestLista(unittest.TestCase):\n    def setUp(self):\n        self.lista = [1, 2, 3]\n\n     def test_duljina(self):\n         self.assertEqual(len(self.lista), 3)\n\n     def test_dodaj(self):\n         self.lista.append(4)\n         self.assertIn(4, self.lista)",
+        "output": "OK (2 testa)"
+      },
+      {
+        "level": "napredno",
+        "title": "Testiranje kalkulatora",
+        "description": "Real-world: testovi za kalkulator klasu.",
+        "parameters": null,
+        "code": "import unittest\n\nclass Kalkulator:\n    def zbroji(self, a, b): return a + b\n    def podijeli(self, a, b):\n        if b == 0: raise ValueError('Dijeljenje nulom!')\n        return a / b\n\nclass TestKalkulator(unittest.TestCase):\n    def setUp(self):\n        self.calc = Kalkulator()\n\n     def test_zbroji(self):\n         self.assertEqual(self.calc.zbroji(2, 3), 5)\n\n     def test_podijeli(self):\n         self.assertEqual(self.calc.podijeli(10, 2), 5)\n\n     def test_dijeljenje_nulom(self):\n         with self.assertRaises(ValueError):\n             self.calc.podijeli(10, 0)\n\n# unittest.main()",
+        "output": "OK (3 testa)"
+      }
+    ]
+  },
+  {
+    "name": "hashlib",
+    "category": "Sigurnost",
+    "level": [
+      "osnovno",
+      "srednje",
+      "napredno"
+    ],
+    "builtin/pip_install": "builtin",
+    "builtin": true,
+    "pip_install": null,
+    "import": "import hashlib",
+    "description": "Kriptografske hash funkcije: SHA-256, MD5 i druge.",
+    "docs": "https://docs.python.org/3/library/hashlib.html",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "hashlib.sha256()",
+        "description": "Stvara SHA-256 hash.",
+        "parameters": null,
+        "code": "import hashlib\nh = hashlib.sha256(b'Hello')\nprint(h.hexdigest())",
+        "output": "185f8db32271fe25f561a6fc938b2e26..."
+      },
+      {
+        "level": "osnovno",
+        "title": "hashlib.md5()",
+        "description": "Stvara MD5 hash (nije siguran za kriptografiju).",
+        "parameters": null,
+        "code": "import hashlib\nh = hashlib.md5(b'Hello')\nprint(h.hexdigest())",
+        "output": "8b1a9953c4611296a827abf8c47804d7"
+      },
+      {
+        "level": "srednje",
+        "title": "Hash datoteke",
+        "description": "Računanje hash-a velike datoteke.",
+        "parameters": null,
+        "code": "import hashlib\n\ndef hash_datoteke(put):\n    h = hashlib.sha256()\n    with open(put, 'rb') as f:\n        while chunk := f.read(8192):\n            h.update(chunk)\n    return h.hexdigest()\n\n# print(hash_datoteke('veliki_fajl.zip'))",
+        "output": "a1b2c3d4e5f6..."
+      },
+      {
+        "level": "napredno",
+        "title": "Provjera integriteta",
+        "description": "Real-world: provjera jesu li datoteke promijenjene.",
+        "parameters": null,
+        "code": "import hashlib\nimport json\n\ndef stvori_checksum(datoteke):\n    checksumi = {}\n    for d in datoteke:\n        h = hashlib.sha256(d.encode()).hexdigest()\n        checksumi[d] = h\n    return checksumi\n\ndatoteke = ['main.py', 'config.json', 'data.csv']\nresult = stvori_checksum(datoteke)\nfor f, h in result.items():\n    print(f'{f}: {h[:16]}...')",
+        "output": "main.py: b4d4e3c2a1f0e9d8...\nconfig.json: 7a8b9c0d1e2f3a4b...\ndata.csv: 3c4d5e6f7a8b9c0d..."
+      }
+    ]
+  },
+  {
+    "name": "secrets",
+    "category": "Sigurnost",
+    "level": [
+      "osnovno"
+    ],
+    "builtin/pip_install": "builtin",
+    "builtin": true,
+    "pip_install": null,
+    "import": "import secrets",
+    "description": "Kriptografski sigurno generiranje tokena i lozinki.",
+    "docs": "https://docs.python.org/3/library/secrets.html",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "secrets.token_hex()",
+        "description": "Generira hex token.",
+        "parameters": "nbytes",
+        "code": "import secrets\n\nprint(secrets.token_hex(16))\nprint(secrets.token_hex(32))",
+        "output": "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6\n..."
+      },
+      {
+        "level": "osnovno",
+        "title": "secrets.token_urlsafe()",
+        "description": "URL-siguran token.",
+        "parameters": "nbytes",
+        "code": "import secrets\n\ntoken = secrets.token_urlsafe(32)\nprint(f'Reset link: https://app.com/reset?token={token}')",
+        "output": "Reset link: https://app.com/reset?token=abc123..."
+      },
+      {
+        "level": "osnovno",
+        "title": "secrets.choice()",
+        "description": "Kriptografski siguran izbor.",
+        "parameters": "sequence",
+        "code": "import secrets\nimport string\n\nalfabet = string.ascii_letters + string.digits + '!@#$%'\nlozinka = ''.join(secrets.choice(alfabet) for _ in range(16))\nprint(f'Lozinka: {lozinka}')",
+        "output": "Lozinka: xK9#mP2qR5tW8vZ1"
+      }
+    ]
+  },
+  {
+    "name": "asyncio",
+    "category": "Async/Paralelno",
+    "level": [
+      "osnovno",
+      "srednje",
+      "napredno"
+    ],
+    "builtin/pip_install": "builtin",
+    "builtin": true,
+    "pip_install": null,
+    "import": "import asyncio",
+    "description": "Asinhrono programiranje s async/await sintaksom.",
+    "docs": "https://docs.python.org/3/library/asyncio.html",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "asyncio.run()",
+        "description": "Pokreče asinkronu funkciju.",
+        "parameters": "coro",
+        "code": "import asyncio\n\nasync def pozdrav():\n    print('Pozdrav!')\n    await asyncio.sleep(1)\n    print('Gotovo!')\n\nasyncio.run(pozdrav())",
+        "output": "Pozdrav!\nGotovo!"
+      },
+      {
+        "level": "osnovno",
+        "title": "asyncio.sleep()",
+        "description": "Asinhrona pauza.",
+        "parameters": "delay",
+        "code": "import asyncio\n\nasync def odbroj():\n    for i in range(3, 0, -1):\n        print(i)\n        await asyncio.sleep(1)\n    print('Start!')\n\nasyncio.run(odbroj())",
+        "output": "3\n2\n1\nStart!"
+      },
+      {
+        "level": "osnovno",
+        "title": "asyncio.create_task()",
+        "description": "Stvara task za paralelno izvršavanje.",
+        "parameters": "coro",
+        "code": "import asyncio\n\nasync def zadatak(ime, trajanje):\n    await asyncio.sleep(trajanje)\n    print(f'{ime} gotov!')\n\nasync def main():\n    t1 = asyncio.create_task(zadatak('A', 2))\n    t2 = asyncio.create_task(zadatak('B', 1))\n    await t1\n    await t2\n\nasyncio.run(main())",
+        "output": "B gotov!\nA gotov!"
+      },
+      {
+        "level": "srednje",
+        "title": "asyncio.gather()",
+        "description": "Pokreče više korutina paralelno.",
+        "parameters": "*coros",
+        "code": "import asyncio\n\nasync def dohvati(url, trajanje):\n    await asyncio.sleep(trajanje)\n    return f'{url}: OK'\n\nasync def main():\n    rezultati = await asyncio.gather(\n        dohvati('api/users', 1),\n        dohvati('api/posts', 2),\n        dohvati('api/comments', 1)\n    )\n    for r in rezultati:\n        print(r)\n\nasyncio.run(main())",
+        "output": "api/users: OK\napi/posts: OK\napi/comments: OK"
+      },
+      {
+        "level": "srednje",
+        "title": "asyncio.wait_for()",
+        "description": "čeka korutinu s timeoutom.",
+        "parameters": "coro, timeout",
+        "code": "import asyncio\n\nasync def sporo():\n    await asyncio.sleep(10)\n    return 'gotovo'\n\nasync def main():\n    try:\n         r = await asyncio.wait_for(sporo(), timeout=2)\n    except asyncio.TimeoutError:\n         print('Timeout!')\n\nasyncio.run(main())",
+        "output": "Timeout!"
+      },
+      {
+        "level": "napredno",
+        "title": "asyncio.Queue",
+        "description": "Real-world: producer-consumer uzorak.",
+        "parameters": null,
+        "code": "import asyncio\n\nasync def producer(q):\n    for i in range(5):\n        await q.put(i)\n        print(f'Produced: {i}')\n    await q.put(None)\n\nasync def consumer(q):\n    while True:\n        item = await q.get()\n        if item is None:\n            break\n        print(f'Consumed: {item}')\n\nasync def main():\n    q = asyncio.Queue()\n    await asyncio.gather(producer(q), consumer(q))\n\nasyncio.run(main())",
+        "output": "Produced: 0\nConsumed: 0\nProduced: 1\nConsumed: 1\n..."
+      }
+    ]
+  },
+  {
+    "name": "threading",
+    "category": "Async/Paralelno",
+    "level": [
+      "osnovno",
+      "srednje",
+      "napredno"
+    ],
+    "builtin/pip_install": "builtin",
+    "builtin": true,
+    "pip_install": null,
+    "import": "import threading",
+    "description": "Višenitno programiranje za I/O-bound zadatke.",
+    "docs": "https://docs.python.org/3/library/threading.html",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "threading.Thread()",
+        "description": "Stvara novu nit.",
+        "parameters": "target, args",
+        "code": "import threading\nimport time\n\ndef posao(ime):\n    print(f'{ime} po■inje')\n    time.sleep(1)\n    print(f'{ime} gotov')\n\nt = threading.Thread(target=posao, args=('Nit-1',))\nt.start()\nt.join()\nprint('Sve gotovo')",
+        "output": "Nit-1 po■inje\nNit-1 gotov\nSve gotovo"
+      },
+      {
+        "level": "osnovno",
+        "title": "threading.active_count()",
+        "description": "Broj aktivnih niti.",
+        "parameters": null,
+        "code": "import threading\n\nprint(f'Aktivne niti: {threading.active_count()}')\nprint(f'Trenutna: {threading.current_thread().name}')",
+        "output": "Aktivne niti: 1\nTrenutna: MainThread"
+      },
+      {
+        "level": "srednje",
+        "title": "threading.Lock()",
+        "description": "Zaključavanje za thread-safe pristup.",
+        "parameters": null,
+        "code": "import threading\n\nbrojac = 0\nlock = threading.Lock()\n\ndef povecaj():\n    global brojac\n    for _ in range(100000):\n        with lock:\n            brojac += 1\n\nniti = [threading.Thread(target=povecaj) for _ in range(4)]\nfor t in niti: t.start()\nfor t in niti: t.join()\nprint(f'Broja■: {brojac}')",
+        "output": "Broja■: 400000"
+      },
+      {
+        "level": "napredno",
+        "title": "ThreadPoolExecutor",
+        "description": "Real-world: paralelno preuzimanje.",
+        "parameters": null,
+        "code": "from concurrent.futures import ThreadPoolExecutor\nimport time\n\ndef dohvati(url):\n    time.sleep(0.5)\n    return f'{url}: 200 OK'\n\nurls = ['api/a', 'api/b', 'api/c', 'api/d']\nwith ThreadPoolExecutor(max_workers=4) as ex:\n    rezultati = list(ex.map(dohvati, urls))\nfor r in rezultati:\n    print(r)",
+        "output": "api/a: 200 OK\napi/b: 200 OK\napi/c: 200 OK\napi/d: 200 OK"
+      }
+    ]
+  },
+  {
+    "name": "multiprocessing",
+    "category": "Async/Paralelno",
+    "level": [
+      "osnovno",
+      "srednje",
+      "napredno"
+    ],
+    "builtin/pip_install": "builtin",
+    "builtin": true,
+    "pip_install": null,
+    "import": "import multiprocessing",
+    "description": "Paralelno izvršavanje pomoču procesa za CPU-bound zadatke.",
+    "docs": "https://docs.python.org/3/library/multiprocessing.html",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "multiprocessing.Process()",
+        "description": "Stvara novi proces.",
+        "parameters": "target, args",
+        "code": "import multiprocessing\n\ndef kvadrat(n):\n    print(f'{n}² = {n**2}')\n\nif __name__ == '__main__':\n    p = multiprocessing.Process(target=kvadrat, args=(5,))\n    p.start()\n    p.join()",
+        "output": "5² = 25"
+      },
+      {
+        "level": "osnovno",
+        "title": "multiprocessing.cpu_count()",
+        "description": "Broj dostupnih CPU jezgri.",
+        "parameters": null,
+        "code": "import multiprocessing\n\nprint(f'CPU jezgre: {multiprocessing.cpu_count()}')",
+        "output": "CPU jezgre: 8"
+      },
+      {
+        "level": "srednje",
+        "title": "multiprocessing.Pool()",
+        "description": "Pool procesa za paralelnu obradu.",
+        "parameters": "processes",
+        "code": "import multiprocessing\n\ndef kvadrat(n):\n    return n ** 2\n\nif __name__ == '__main__':\n    with multiprocessing.Pool(4) as pool:\n        rezultati = pool.map(kvadrat, range(10))\n    print(rezultati)",
+        "output": "[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]"
+      },
+      {
+        "level": "napredno",
+        "title": "Dijeljenje podataka",
+        "description": "Real-world: zajednički brojač izmeču procesa.",
+        "parameters": null,
+        "code": "import multiprocessing\n\ndef radnik(brojac, lock):\n    for _ in range(1000):\n        with lock:\n            brojac.value += 1\n\nif __name__ == '__main__':\n    brojac = multiprocessing.Value('i', 0)\n    lock = multiprocessing.Lock()\n    procesi = [multiprocessing.Process(target=radnik, args=(brojac, lock)) for _ in range(4)]\n    for p in procesi: p.start()\n    for p in procesi: p.join()\n    print(f'Broja■: {brojac.value}')",
+        "output": "Broja■: 4000"
+      }
+    ]
+  },
+  {
+    "name": "queue",
+    "category": "Async/Paralelno",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "builtin",
+    "builtin": true,
+    "pip_install": null,
+    "import": "import queue",
+    "description": "Thread-safe redovi za razmjenu podataka izmeču niti.",
+    "docs": "https://docs.python.org/3/library/queue.html",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "queue.Queue()",
+        "description": "FIFO red.",
+        "parameters": "maxsize=0",
+        "code": "import queue\n\nq = queue.Queue()\nq.put('prvi')\nq.put('drugi')\nq.put('tre■i')\n\nwhile not q.empty():\n    print(q.get())",
+        "output": "prvi\ndrugi\ntre■i"
+      },
+      {
+        "level": "osnovno",
+        "title": "queue.LifoQueue()",
+        "description": "LIFO red (stack).",
+        "parameters": null,
+        "code": "import queue\n\nq = queue.LifoQueue()\nq.put(1)\nq.put(2)\nq.put(3)\n\nwhile not q.empty():\n    print(q.get())",
+        "output": "3\n2\n1"
+      },
+      {
+        "level": "osnovno",
+        "title": "queue.PriorityQueue()",
+        "description": "Red s prioritetom.",
+        "parameters": null,
+        "code": "import queue\n\nq = queue.PriorityQueue()\nq.put((3, 'nisko'))\nq.put((1, 'visoko'))\nq.put((2, 'srednje'))\n\nwhile not q.empty():\n    print(q.get())",
+        "output": "(1, 'visoko')\n(2, 'srednje')\n(3, 'nisko')"
+      },
+      {
+        "level": "srednje",
+        "title": "Producer-Consumer",
+        "description": "Klasični uzorak s nitima.",
+        "parameters": null,
+        "code": "import queue\nimport threading\n\nq = queue.Queue(maxsize=5)\n\ndef producer():\n    for i in range(10):\n        q.put(i)\n        print(f'Put: {i}')\n\ndef consumer():\n    for _ in range(10):\n        item = q.get()\n        print(f'Got: {item}')\n        q.task_done()\n\nt1 = threading.Thread(target=producer)\nt2 = threading.Thread(target=consumer)\nt1.start(); t2.start()\nt1.join(); t2.join()",
+        "output": "Put: 0\nGot: 0\n..."
+      }
+    ]
+  },
+  {
+    "name": "dataclasses",
+    "category": "Tipovi",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "builtin",
+    "builtin": true,
+    "pip_install": null,
+    "import": "from dataclasses import dataclass",
+    "description": "Dekoratori za automatsko generiranje __init__, __repr__ i drugih metoda.",
+    "docs": "https://docs.python.org/3/library/dataclasses.html",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "@dataclass",
+        "description": "Definira klasu podataka.",
+        "parameters": null,
+        "code": "from dataclasses import dataclass\n\n@dataclass\nclass Osoba:\n    ime: str\n    godine: int\n    email: str = ''\n\no = Osoba('Ana', 25, 'ana@mail.com')\nprint(o)\nprint(o.ime)",
+        "output": "Osoba(ime='Ana', godine=25, email='ana@mail.com')\nAna"
+      },
+      {
+        "level": "osnovno",
+        "title": "field()",
+        "description": "Napredna konfiguracija polja.",
+        "parameters": "default, default_factory, repr",
+        "code": "from dataclasses import dataclass, field\n\n@dataclass\nclass Tim:\n    ime: str\n    clanovi: list = field(default_factory=list)\n\nt = Tim('Dev')\nt.clanovi.append('Ana')\nt.clanovi.append('Marko')\nprint(t)",
+        "output": "Tim(ime='Dev', clanovi=['Ana', 'Marko'])"
+      },
+      {
+        "level": "srednje",
+        "title": "frozen dataclass",
+        "description": "Nepromjenjiva klasa podataka.",
+        "parameters": null,
+        "code": "from dataclasses import dataclass\n\n@dataclass(frozen=True)\nclass Tocka:\n    x: float\n    y: float\n\nt = Tocka(3.0, 4.0)\nprint(t)\ntry:\n     t.x = 5.0\nexcept Exception as e:\n     print(f'Greška: {e}')",
+        "output": "Tocka(x=3.0, y=4.0)\nGreška: cannot assign to field 'x'"
+      },
+      {
+        "level": "srednje",
+        "title": "asdict / astuple",
+        "description": "Pretvaranje u dict ili tuple.",
+        "parameters": null,
+        "code": "from dataclasses import dataclass, asdict, astuple\n\n@dataclass\nclass Boja:\n    r: int\n    g: int\n    b: int\n\nb = Boja(255, 128, 0)\nprint(asdict(b))\nprint(astuple(b))",
+        "output": "{'r': 255, 'g': 128, 'b': 0}\n(255, 128, 0)"
+      }
+    ]
+  },
+  {
+    "name": "decimal",
+    "category": "Tipovi",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "builtin",
+    "builtin": true,
+    "pip_install": null,
+    "import": "from decimal import Decimal",
+    "description": "Precizna decimalna aritmetika za financijske izračune.",
+    "docs": "https://docs.python.org/3/library/decimal.html",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "Decimal()",
+        "description": "Stvara decimalni broj.",
+        "parameters": "value",
+        "code": "from decimal import Decimal\n\n# Float problem\nprint(0.1 + 0.2)\n\n# Decimal preciznost\nprint(Decimal('0.1') + Decimal('0.2'))",
+        "output": "0.30000000000000004\n0.3"
+      },
+      {
+        "level": "osnovno",
+        "title": "quantize()",
+        "description": "Zaokruživanje na zadane decimale.",
+        "parameters": "exp",
+        "code": "from decimal import Decimal\n\ncijena = Decimal('19.995')\nprint(cijena.quantize(Decimal('0.01')))\n\npdv = cijena * Decimal('0.25')\nprint(pdv.quantize(Decimal('0.01')))",
+        "output": "20.00\n5.00"
+      },
+      {
+        "level": "srednje",
+        "title": "getcontext()",
+        "description": "Postavke preciznosti.",
+        "parameters": null,
+        "code": "from decimal import Decimal, getcontext\n\ngetcontext().prec = 50\nprint(Decimal(1) / Decimal(7))",
+        "output": "0.14285714285714285714285714285714285714285714285714"
+      }
+    ]
+  },
+  {
+    "name": "fractions",
+    "category": "Tipovi",
+    "level": [
+      "osnovno"
+    ],
+    "builtin/pip_install": "builtin",
+    "builtin": true,
+    "pip_install": null,
+    "import": "from fractions import Fraction",
+    "description": "Rad s razlomcima (racionalnim brojevima).",
+    "docs": "https://docs.python.org/3/library/fractions.html",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "Fraction()",
+        "description": "Stvara razlomak.",
+        "parameters": "numerator, denominator",
+        "code": "from fractions import Fraction\n\na = Fraction(1, 3)\nb = Fraction(2, 3)\nprint(f'{a} + {b} = {a + b}')\nprint(f'{a} * {b} = {a * b}')",
+        "output": "1/3 + 2/3 = 1\n1/3 * 2/3 = 2/9"
+      },
+      {
+        "level": "osnovno",
+        "title": "Fraction iz float/str",
+        "description": "Pretvaranje u razlomak.",
+        "parameters": null,
+        "code": "from fractions import Fraction\n\nprint(Fraction('0.75'))\nprint(Fraction(0.1))\nprint(Fraction(0.1).limit_denominator(10))",
+        "output": "3/4\n3602879701896397/36028797018963968\n1/10"
+      }
+    ]
+  },
+  {
+    "name": "uuid",
+    "category": "Tipovi",
+    "level": [
+      "osnovno"
+    ],
+    "builtin/pip_install": "builtin",
+    "builtin": true,
+    "pip_install": null,
+    "import": "import uuid",
+    "description": "Generiranje univerzalno jedinstvenih identifikatora.",
+    "docs": "https://docs.python.org/3/library/uuid.html",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "uuid.uuid4()",
+        "description": "Generira nasumični UUID.",
+        "parameters": null,
+        "code": "import uuid\n\nid1 = uuid.uuid4()\nid2 = uuid.uuid4()\nprint(f'UUID 1: {id1}')\nprint(f'UUID 2: {id2}')\nprint(f'Hex: {id1.hex}')\nprint(f'Version: {id1.version}')",
+        "output": "UUID 1: a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d\nUUID 2: f6e5d4c3-b2a1-4f6e-9d8c-7b6a5f4e3d2c\nHex: a1b2c3d4e5f64a7b8c9d0e1f2a3b4c5d\nVersion: 4"
+      },
+      {
+        "level": "osnovno",
+        "title": "uuid.uuid5()",
+        "description": "Generira UUID iz namespaca i imena.",
+        "parameters": "namespace, name",
+        "code": "import uuid\n\nid1 = uuid.uuid5(uuid.NAMESPACE_DNS, 'python.org')\nid2 = uuid.uuid5(uuid.NAMESPACE_DNS, 'python.org')\nprint(id1)\nprint(id1 == id2) # Isti input → isti UUID",
+        "output": "886313e1-3b8a-5372-9b90-0c9aee199e5d\nTrue"
+      }
+    ]
+  },
+  {
+    "name": "pickle",
+    "category": "Tipovi",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "builtin",
+    "builtin": true,
+    "pip_install": null,
+    "import": "import pickle",
+    "description": "Serijalizacija Python objekata u binarni format.",
+    "docs": "https://docs.python.org/3/library/pickle.html",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "pickle.dumps()",
+        "description": "Serijalizira objekt u bytes.",
+        "parameters": "obj",
+        "code": "import pickle\n\npodaci = {'ime': 'Ana', 'ocjene': [5, 4, 5]}\nserialized = pickle.dumps(podaci)\nprint(f'Veli■ina: {len(serialized)} bytes')\n\ndeserialized = pickle.loads(serialized)\nprint(deserialized)",
+        "output": "Veli■ina: 54 bytes\n{'ime': 'Ana', 'ocjene': [5, 4, 5]}"
+      },
+      {
+        "level": "osnovno",
+        "title": "pickle.dump() / load()",
+        "description": "Sprema/učitava iz datoteke.",
+        "parameters": "obj, file",
+        "code": "import pickle\n\npodaci = [1, 2, 3, {'a': 'b'}]\n\n# Spremi\nwith open('podaci.pkl', 'wb') as f:\n    pickle.dump(podaci, f)\n\n# U■itaj\nwith open('podaci.pkl', 'rb') as f:\n    ucitano = pickle.load(f)\nprint(ucitano)",
+        "output": "[1, 2, 3, {'a': 'b'}]"
+      },
+      {
+        "level": "srednje",
+        "title": "Klase s pickle",
+        "description": "Serijalizacija custom klasa.",
+        "parameters": null,
+        "code": "import pickle\n\nclass Igrac:\n    def __init__(self, ime, level):\n        self.ime = ime\n        self.level = level\n    def __repr__(self):\n        return f'Igrac({self.ime}, lvl={self.level})'\n\nigrac = Igrac('Hero', 42)\ndata = pickle.dumps(igrac)\nigrac2 = pickle.loads(data)\nprint(igrac2)",
+        "output": "Igrac(Hero, lvl=42)"
+      }
+    ]
+  },
+  {
+    "name": "pydantic",
+    "category": "Tipovi",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "pip install pydantic",
+    "builtin": false,
+    "pip_install": "pip install pydantic",
+    "import": "from pydantic import BaseModel",
+    "description": "Validacija podataka pomoču Python type hintova — koristi se u FastAPI, LangChain itd.",
+    "docs": "https://docs.pydantic.dev/latest/",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "BaseModel",
+        "description": "Definiranje modela s validacijom.",
+        "parameters": null,
+        "code": "from pydantic import BaseModel\n\nclass Korisnik(BaseModel):\n    ime: str\n    dob: int\n    email: str\n\nk = Korisnik(ime='Ana', dob=25, email='ana@mail.com')\nprint(k)\nprint(k.model_dump())",
+        "output": "ime='Ana' dob=25 email='ana@mail.com'\n{'ime': 'Ana', 'dob': 25, 'email': 'ana@mail.com'}"
+      },
+      {
+        "level": "srednje",
+        "title": "Validatori",
+        "description": "Custom validacijska pravila.",
+        "parameters": null,
+        "code": "from pydantic import BaseModel, field_validator\n\nclass Proizvod(BaseModel):\n    naziv: str\n    cijena: float\n\n     @field_validator('cijena')\n     @classmethod\n     def cijena_pozitivna(cls, v):\n         if v <= 0:\n             raise ValueError('Cijena mora biti pozitivna')\n         return v\n\np = Proizvod(naziv='Laptop', cijena=999.99)\nprint(p)",
+        "output": "naziv='Laptop' cijena=999.99"
+      }
+    ]
+  },
+  {
+    "name": "logging",
+    "category": "Sustav",
+    "level": [
+      "osnovno",
+      "srednje",
+      "napredno"
+    ],
+    "builtin/pip_install": "builtin",
+    "builtin": true,
+    "pip_install": null,
+    "import": "import logging",
+    "description": "Sustav za logiranje — zapisivanje poruka o radu programa.",
+    "docs": "https://docs.python.org/3/library/logging.html",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "logging.basicConfig()",
+        "description": "Osnovna konfiguracija logiranja.",
+        "parameters": "level, format, filename",
+        "code": "import logging\nlogging.basicConfig(level=logging.INFO)\nlogging.info('Program pokrenut')\nlogging.warning('Upozorenje!')\nlogging.error('Greška!')",
+        "output": "INFO:root:Program pokrenut\nWARNING:root:Upozorenje!\nERROR:root:Greška!"
+      },
+      {
+        "level": "srednje",
+        "title": "Custom logger",
+        "description": "Kreiranje vlastitog loggera.",
+        "parameters": null,
+        "code": "import logging\n\nlogger = logging.getLogger('moj_app')\nlogger.setLevel(logging.DEBUG)\nhandler = logging.StreamHandler()\nformatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')\nhandler.setFormatter(formatter)\nlogger.addHandler(handler)\n\nlogger.info('Aplikacija pokrenuta')",
+        "output": "2024-01-15 14:30:00 - moj_app - INFO - Aplikacija pokrenuta"
+      },
+      {
+        "level": "napredno",
+        "title": "Logiranje u datoteku",
+        "description": "Real-world: logiranje s rotacijom datoteka.",
+        "parameters": null,
+        "code": "import logging\nfrom logging.handlers import RotatingFileHandler\n\ndef setup_logger(name, log_file):\n    logger = logging.getLogger(name)\n    logger.setLevel(logging.DEBUG)\n    handler = RotatingFileHandler(\n        log_file, maxBytes=1024*1024, backupCount=5\n    )\n    fmt = logging.Formatter('%(asctime)s [%(levelname)s] %(message)s')\n    handler.setFormatter(fmt)\n    logger.addHandler(handler)\n    return logger\n\n# log = setup_logger('app', 'app.log')\n# log.info('Server pokrenut na portu 8000')",
+        "output": "2024-01-15 14:30:00 [INFO] Server pokrenut na portu 8000"
+      }
+    ]
+  },
+  {
+    "name": "argparse",
+    "category": "Sustav",
+    "level": [
+      "osnovno",
+      "napredno"
+    ],
+    "builtin/pip_install": "builtin",
+    "builtin": true,
+    "pip_install": null,
+    "import": "import argparse",
+    "description": "Parsiranje argumenata komandne linije.",
+    "docs": "https://docs.python.org/3/library/argparse.html",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "ArgumentParser()",
+        "description": "Stvara parser za CLI argumente.",
+        "parameters": null,
+        "code": "import argparse\n\nparser = argparse.ArgumentParser(description='Moj program')\nparser.add_argument('ime', help='Vaše ime')\nparser.add_argument('-g', '--godine', type=int, default=0)\n\n# args = parser.parse_args()\n# print(f'Bok, {args.ime}! ({args.godine})')",
+        "output": "$ python prog.py Ana -g 25\nBok, Ana! (25)"
+      },
+      {
+        "level": "napredno",
+        "title": "CLI alat za datoteke",
+        "description": "Real-world: CLI za pretraživanje datoteka.",
+        "parameters": null,
+        "code": "import argparse\nimport os\n\ndef pretrazi(direktorij, ext, rekurzivno):\n    for root, dirs, files in os.walk(direktorij):\n        for f in files:\n            if f.endswith(ext):\n                print(os.path.join(root, f))\n        if not rekurzivno:\n            break\n\nparser = argparse.ArgumentParser(description='Pretraži datoteke')\nparser.add_argument('dir', help='Direktorij')\nparser.add_argument('-e', '--ext', default='.py')\nparser.add_argument('-r', '--recursive', action='store_true')\n\n# args = parser.parse_args()\n# pretrazi(args.dir, args.ext, args.recursive)",
+        "output": "$ python search.py src -e .py -r\nsrc/main.py\nsrc/utils/helpers.py"
+      }
+    ]
+  },
+  {
+    "name": "subprocess",
+    "category": "Sustav",
+    "level": [
+      "osnovno",
+      "srednje",
+      "napredno"
+    ],
+    "builtin/pip_install": "builtin",
+    "builtin": true,
+    "pip_install": null,
+    "import": "import subprocess",
+    "description": "Pokretanje eksternih procesa i komandi iz Pythona.",
+    "docs": "https://docs.python.org/3/library/subprocess.html",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "subprocess.run()",
+        "description": "Pokreče komandu i čeka završetak.",
+        "parameters": "args, capture_output, text",
+        "code": "import subprocess\n\nrezultat = subprocess.run(\n    ['echo', 'Pozdrav iz terminala!'],\n    capture_output=True, text=True\n)\nprint(rezultat.stdout)\nprint(f'Return code: {rezultat.returncode}')",
+        "output": "Pozdrav iz terminala!\nReturn code: 0"
+      },
+      {
+        "level": "osnovno",
+        "title": "subprocess.run() s shell",
+        "description": "Pokreče shell komandu.",
+        "parameters": null,
+        "code": "import subprocess\n\nr = subprocess.run('echo $HOME', shell=True, capture_output=True, text=True)\nprint(r.stdout.strip())",
+        "output": "/home/korisnik"
+      },
+      {
+        "level": "srednje",
+        "title": "subprocess.Popen()",
+        "description": "Napredna kontrola nad procesom.",
+        "parameters": "args, stdin, stdout, stderr",
+        "code": "import subprocess\n\nproc = subprocess.Popen(\n    ['python3', '-c', 'print(\"Hello\")'],\n    stdout=subprocess.PIPE, text=True\n)\nout, _ = proc.communicate()\nprint(f'Output: {out.strip()}')\nprint(f'Code: {proc.returncode}')",
+        "output": "Output: Hello\nCode: 0"
+      },
+      {
+        "level": "napredno",
+        "title": "Pipe chain",
+        "description": "Real-world: povezivanje komandi pipom.",
+        "parameters": null,
+        "code": "import subprocess\n\np1 = subprocess.Popen(\n    ['echo', 'banana\\njabuka\\nkruska\\njabuka'],\n    stdout=subprocess.PIPE\n)\np2 = subprocess.Popen(\n    ['sort'], stdin=p1.stdout,\n    stdout=subprocess.PIPE, text=True\n)\np1.stdout.close()\nout, _ = p2.communicate()\nprint(out)",
+        "output": "banana\njabuka\njabuka\nkruska"
+      }
+    ]
+  },
+  {
+    "name": "tempfile",
+    "category": "Sustav",
+    "level": [
+      "osnovno"
+    ],
+    "builtin/pip_install": "builtin",
+    "builtin": true,
+    "pip_install": null,
+    "import": "import tempfile",
+    "description": "Stvaranje privremenih datoteka i direktorija.",
+    "docs": "https://docs.python.org/3/library/tempfile.html",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "tempfile.NamedTemporaryFile()",
+        "description": "Privremena datoteka s imenom.",
+        "parameters": "mode, suffix, delete",
+        "code": "import tempfile\n\nwith tempfile.NamedTemporaryFile(mode='w', suffix='.txt', delete=False) as f:\n    f.write('Privremeni podaci')\n    print(f'Datoteka: {f.name}')",
+        "output": "Datoteka: /tmp/tmp_abc123.txt"
+      },
+      {
+        "level": "osnovno",
+        "title": "tempfile.mkdtemp()",
+        "description": "Privremeni direktorij.",
+        "parameters": null,
+        "code": "import tempfile\nimport os\n\ntmp_dir = tempfile.mkdtemp()\nprint(f'Dir: {tmp_dir}')\nprint(f'Postoji: {os.path.exists(tmp_dir)}')",
+        "output": "Dir: /tmp/tmp_xyz789\nPostoji: True"
+      }
+    ]
+  },
+  {
+    "name": "zipfile",
+    "category": "Sustav",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "builtin",
+    "builtin": true,
+    "pip_install": null,
+    "import": "import zipfile",
+    "description": "Rad sa ZIP arhivama — kompresija i dekompresija.",
+    "docs": "https://docs.python.org/3/library/zipfile.html",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "ZipFile() — pisanje",
+        "description": "Stvara ZIP arhivu.",
+        "parameters": null,
+        "code": "import zipfile\n\nwith zipfile.ZipFile('arhiva.zip', 'w') as zf:\n    zf.writestr('pozdrav.txt', 'Hello ZIP!')\n    zf.writestr('podaci.txt', '1,2,3,4,5')\nprint('Arhiva stvorena!')",
+        "output": "Arhiva stvorena!"
+      },
+      {
+        "level": "osnovno",
+        "title": "ZipFile() — čitanje",
+        "description": "čita sadržaj ZIP arhive.",
+        "parameters": null,
+        "code": "import zipfile\n\nwith zipfile.ZipFile('arhiva.zip', 'r') as zf:\n    print('Datoteke:', zf.namelist())\n    print(zf.read('pozdrav.txt').decode())",
+        "output": "Datoteke: ['pozdrav.txt', 'podaci.txt']\nHello ZIP!"
+      },
+      {
+        "level": "srednje",
+        "title": "extractall()",
+        "description": "Raspakira sve datoteke.",
+        "parameters": "path",
+        "code": "import zipfile\n\nwith zipfile.ZipFile('arhiva.zip', 'r') as zf:\n    zf.extractall('raspakirano/')\n    for info in zf.infolist():\n        print(f'{info.filename}: {info.file_size} bytes')",
+        "output": "pozdrav.txt: 10 bytes\npodaci.txt: 9 bytes"
+      }
+    ]
+  },
+  {
+    "name": "configparser",
+    "category": "Sustav",
+    "level": [
+      "osnovno"
+    ],
+    "builtin/pip_install": "builtin",
+    "builtin": true,
+    "pip_install": null,
+    "import": "import configparser",
+    "description": "čitanje i pisanje INI konfiguracijskih datoteka.",
+    "docs": "https://docs.python.org/3/library/configparser.html",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "ConfigParser() — pisanje",
+        "description": "Stvara INI datoteku.",
+        "parameters": null,
+        "code": "import configparser\n\nconfig = configparser.ConfigParser()\nconfig['DEFAULT'] = {'debug': 'false'}\nconfig['server'] = {\n    'host': 'localhost',\n    'port': '8080'\n}\nconfig['database'] = {\n    'engine': 'postgresql',\n    'name': 'mydb'\n}\n\nwith open('config.ini', 'w') as f:\n    config.write(f)\nprint('Config zapisan!')",
+        "output": "Config zapisan!"
+      },
+      {
+        "level": "osnovno",
+        "title": "ConfigParser() — čitanje",
+        "description": "čita INI datoteku.",
+        "parameters": null,
+        "code": "import configparser\n\nconfig = configparser.ConfigParser()\nconfig.read('config.ini')\n\nprint(config['server']['host'])\nprint(config['database']['engine'])\nprint(config.getboolean('DEFAULT', 'debug'))",
+        "output": "localhost\npostgresql\nFalse"
+      }
+    ]
+  },
+  {
+    "name": "traceback",
+    "category": "Sustav",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "builtin",
+    "builtin": true,
+    "pip_install": null,
+    "import": "import traceback",
+    "description": "Ispis i analiza stack trace grešaka.",
+    "docs": "https://docs.python.org/3/library/traceback.html",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "traceback.print_exc()",
+        "description": "Ispisuje trenutnu grešku.",
+        "parameters": null,
+        "code": "import traceback\n\ntry:\n    1 / 0\nexcept:\n    traceback.print_exc()",
+        "output": "Traceback (most recent call last):\n  File ...\nZeroDivisionError: division by zero"
+      },
+      {
+        "level": "osnovno",
+        "title": "traceback.format_exc()",
+        "description": "Vrača grešku kao string.",
+        "parameters": null,
+        "code": "import traceback\n\ntry:\n    int('abc')\nexcept:\n    greska = traceback.format_exc()\n    print(f'Zabilježeno: {len(greska)} znakova')\n    print(greska)",
+        "output": "Zabilježeno: 120 znakova\nTraceback ..."
+      },
+      {
+        "level": "srednje",
+        "title": "traceback.extract_tb()",
+        "description": "Parsira traceback u listu.",
+        "parameters": null,
+        "code": "import traceback\nimport sys\n\ntry:\n    def a(): return b()\n    def b(): return c()\n    def c(): raise ValueError('boom')\n    a()\nexcept:\n    tb = traceback.extract_tb(sys.exc_info()[2])\n    for frame in tb:\n        print(f'{frame.name}() linija {frame.lineno}')",
+        "output": "a() linija 4\nb() linija 5\nc() linija 6"
+      }
+    ]
+  },
+  {
+    "name": "urllib",
+    "category": "Mreža",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "builtin",
+    "builtin": true,
+    "pip_install": null,
+    "import": "from urllib import request, parse",
+    "description": "Standardni modul za HTTP zahtjeve i URL obradu.",
+    "docs": "https://docs.python.org/3/library/urllib.html",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "urllib.request.urlopen()",
+        "description": "Šalje HTTP GET zahtjev.",
+        "parameters": "url",
+        "code": "from urllib.request import urlopen\n\nresponse = urlopen('https://httpbin.org/get')\nprint(f'Status: {response.status}')\nprint(f'Content-Type: {response.headers[\"Content-Type\"]}')",
+        "output": "Status: 200\nContent-Type: application/json"
+      },
+      {
+        "level": "osnovno",
+        "title": "urllib.parse.urlencode()",
+        "description": "Kodira parametre za URL.",
+        "parameters": "query",
+        "code": "from urllib.parse import urlencode, urlparse\n\nparams = urlencode({'q': 'python tutorial', 'page': 1})\nprint(f'Params: {params}')\n\nurl = urlparse('https://example.com/path?key=val')\nprint(f'Scheme: {url.scheme}')\nprint(f'Host: {url.netloc}')",
+        "output": "Params: q=python+tutorial&page=1\nScheme: https\nHost: example.com"
+      },
+      {
+        "level": "srednje",
+        "title": "POST zahtjev",
+        "description": "Slanje podataka POST-om.",
+        "parameters": null,
+        "code": "from urllib.request import urlopen, Request\nimport json\n\ndata = json.dumps({'ime': 'Ana'}).encode()\nreq = Request('https://httpbin.org/post',\n              data=data,\n              headers={'Content-Type': 'application/json'})\nresp = urlopen(req)\nprint(f'Status: {resp.status}')",
+        "output": "Status: 200"
+      }
+    ]
+  },
+  {
+    "name": "email",
+    "category": "Mreža",
+    "level": [
+      "osnovno"
+    ],
+    "builtin/pip_install": "builtin",
+    "builtin": true,
+    "pip_install": null,
+    "import": "from email.mime.text import MIMEText from email.mime.multipart import MIMEMultipart",
+    "description": "Izgradnja i parsiranje email poruka.",
+    "docs": "https://docs.python.org/3/library/email.html",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "MIMEText()",
+        "description": "Stvara jednostavnu email poruku.",
+        "parameters": "text, subtype",
+        "code": "from email.mime.text import MIMEText\n\nmsg = MIMEText('Pozdrav! Ovo je test email.')\nmsg['Subject'] = 'Test'\nmsg['From'] = 'ja@mail.com'\nmsg['To'] = 'ti@mail.com'\n\nprint(msg.as_string()[:150])",
+        "output": "Content-Type: text/plain; charset=\"utf-8\"\nMIME-Version: 1.0\nSubject: Test\nFrom: ja@mail.com\nTo: ti@mail.com"
+      },
+      {
+        "level": "osnovno",
+        "title": "Pozdrav!...",
+        "description": "MIMEMultipart() Email s više dijelova (HTML + text).",
+        "parameters": null,
+        "code": "from email.mime.multipart import MIMEMultipart\nfrom email.mime.text import MIMEText\n\nmsg = MIMEMultipart('alternative')\nmsg['Subject'] = 'HTML Email'\ntekst = MIMEText('Pozdrav u tekstu')\nhtml = MIMEText('<h1>Pozdrav</h1>', 'html')\nmsg.attach(tekst)\nmsg.attach(html)\nprint(f'Dijelovi: {len(msg.get_payload())}')",
+        "output": "Dijelovi: 2"
+      }
+    ]
+  },
+  {
+    "name": "smtplib",
+    "category": "Mreža",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "builtin",
+    "builtin": true,
+    "pip_install": null,
+    "import": "import smtplib",
+    "description": "Slanje emailova putem SMTP protokola.",
+    "docs": "https://docs.python.org/3/library/smtplib.html",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "smtplib.SMTP()",
+        "description": "Spajanje na SMTP server.",
+        "parameters": "host, port",
+        "code": "import smtplib\nfrom email.mime.text import MIMEText\n\n# Primjer strukture (ne šalje stvarno)\nmsg = MIMEText('Tijelo emaila')\nmsg['Subject'] = 'Test'\nmsg['From'] = 'sender@mail.com'\nmsg['To'] = 'receiver@mail.com'\n\n# with smtplib.SMTP('smtp.gmail.com', 587) as s:\n#     s.starttls()\n#     s.login('user', 'pass')\n#     s.send_message(msg)\nprint('Email bi bio poslan!')",
+        "output": "Email bi bio poslan!"
+      },
+      {
+        "level": "srednje",
+        "title": "SMTP_SSL()",
+        "description": "Sigurna SSL konekcija.",
+        "parameters": null,
+        "code": "import smtplib\n\n# Primjer SSL konekcije\n# with smtplib.SMTP_SSL('smtp.gmail.com', 465) as s:\n#     s.login('user@gmail.com', 'app_password')\n#     s.send_message(msg)\n\nprint('Koristi SMTP_SSL za port 465')\nprint('Koristi SMTP + starttls() za port 587')",
+        "output": "Koristi SMTP_SSL za port 465\nKoristi SMTP + starttls() za port 587"
+      }
+    ]
+  },
+  {
+    "name": "http.server",
+    "category": "Mreža",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "builtin",
+    "builtin": true,
+    "pip_install": null,
+    "import": "from http.server import HTTPServer, SimpleHTTPRequestHandler",
+    "description": "Jednostavan HTTP server za razvoj i testiranje.",
+    "docs": "https://docs.python.org/3/library/http.server.html",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "SimpleHTTPRequestHandler",
+        "description": "Servira datoteke iz trenutnog direktorija.",
+        "parameters": null,
+        "code": "# Pokreni iz terminala:\n# python -m http.server 8000\n\nfrom http.server import SimpleHTTPRequestHandler, HTTPServer\n\n# server = HTTPServer(('localhost', 8000), SimpleHTTPRequestHandler)\n# print('Server na http://localhost:8000')\n# server.serve_forever()\nprint('Pokreni: python -m http.server 8000')",
+        "output": "Pokreni: python -m http.server 8000"
+      },
+      {
+        "level": "srednje",
+        "title": "Custom Handler",
+        "description": "Vlastiti HTTP handler.",
+        "parameters": null,
+        "code": "from http.server import HTTPServer, BaseHTTPRequestHandler\nimport json\n\nclass APIHandler(BaseHTTPRequestHandler):\n    def do_GET(self):\n        self.send_response(200)\n        self.send_header('Content-Type', 'application/json')\n        self.end_headers()\n        data = {'poruka': 'Pozdrav!', 'path': self.path}\n        self.wfile.write(json.dumps(data).encode())\n\n# server = HTTPServer(('localhost', 8080), APIHandler)\n# server.serve_forever()\nprint('Custom API handler spreman')",
+        "output": "Custom API handler spreman"
+      }
+    ]
+  },
+  {
+    "name": "socket",
+    "category": "Mreža",
+    "level": [
+      "osnovno",
+      "srednje",
+      "napredno"
+    ],
+    "builtin/pip_install": "builtin",
+    "builtin": true,
+    "pip_install": null,
+    "import": "import socket",
+    "description": "Niskorazinski mrežni pristup — TCP/UDP socketi.",
+    "docs": "https://docs.python.org/3/library/socket.html",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "socket.gethostname()",
+        "description": "Ime računala.",
+        "parameters": null,
+        "code": "import socket\n\nprint(f'Hostname: {socket.gethostname()}')\nprint(f'IP: {socket.gethostbyname(socket.gethostname())}')",
+        "output": "Hostname: my-pc\nIP: 192.168.1.100"
+      },
+      {
+        "level": "osnovno",
+        "title": "socket.getaddrinfo()",
+        "description": "DNS lookup.",
+        "parameters": "host, port",
+        "code": "import socket\n\ninfo = socket.getaddrinfo('python.org', 443)\nfor family, kind, proto, name, addr in info[:2]:\n    print(f'{addr[0]}:{addr[1]}')",
+        "output": "151.101.36.223:443\n..."
+      },
+      {
+        "level": "srednje",
+        "title": "TCP Server/Client",
+        "description": "Jednostavan TCP echo server.",
+        "parameters": null,
+        "code": "import socket\n\n# SERVER (pokreni u jednom terminalu)\n# server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)\n# server.bind(('localhost', 9999))\n# server.listen(1)\n# conn, addr = server.accept()\n# data = conn.recv(1024)\n# conn.sendall(data) # Echo\n# conn.close()\n\n# CLIENT\n# client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)\n# client.connect(('localhost', 9999))\n# client.sendall(b'Pozdrav!')\n# print(client.recv(1024))\n# client.close()\n\nprint('TCP echo server/client primjer')",
+        "output": "TCP echo server/client primjer"
+      },
+      {
+        "level": "napredno",
+        "title": "Port scanner",
+        "description": "Real-world: skeniranje otvorenih portova.",
+        "parameters": null,
+        "code": "import socket\n\ndef skeniraj(host, portovi):\n    rezultati = []\n    for port in portovi:\n        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)\n        s.settimeout(0.5)\n        if s.connect_ex((host, port)) == 0:\n            rezultati.append(port)\n        s.close()\n    return rezultati\n\n# otvoreni = skeniraj('localhost', [22, 80, 443, 8080])\n# print(f'Otvoreni portovi: {otvoreni}')\nprint('Port scanner spreman')",
+        "output": "Port scanner spreman"
+      }
+    ]
+  },
+  {
+    "name": "face_recognition",
+    "category": "AI/ML",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "pip install face_recognition",
+    "builtin": false,
+    "pip_install": "pip install face_recognition",
+    "import": "import face_recognition",
+    "description": "Prepoznavanje lica — detekcija, usporedba i identifikacija osoba na slikama.",
+    "docs": "https://face-recognition.readthedocs.io/",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "face_locations()",
+        "description": "Pronalazi lokacije lica na slici.",
+        "parameters": null,
+        "code": "import face_recognition\n\n# image = face_recognition.load_image_file('slika.jpg')\n# locations = face_recognition.face_locations(image)\n# print(f'Prona■eno {len(locations)} lica')\nprint('Face detection spreman')",
+        "output": "Face detection spreman"
+      },
+      {
+        "level": "osnovno",
+        "title": "face_encodings()",
+        "description": "Generira encoding lica za usporedbu.",
+        "parameters": null,
+        "code": "import face_recognition\n\n# img1 = face_recognition.load_image_file('osoba1.jpg')\n# img2 = face_recognition.load_image_file('osoba2.jpg')\n# enc1 = face_recognition.face_encodings(img1)[0]\n# enc2 = face_recognition.face_encodings(img2)[0]\n# result = face_recognition.compare_faces([enc1], enc2)\n# print(f'Ista osoba: {result[0]}')\nprint('Face comparison spreman')",
+        "output": "Face comparison spreman"
+      },
+      {
+        "level": "srednje",
+        "title": "Real-time detekcija",
+        "description": "Detekcija lica u video streamu.",
+        "parameters": null,
+        "code": "import face_recognition\nimport cv2\n\n# video = cv2.VideoCapture(0)\n# while True:\n#     ret, frame = video.read()\n#     rgb = frame[:, :, ::-1]\n#     locations = face_recognition.face_locations(rgb)\n#     for top,right,bottom,left in locations:\n#         cv2.rectangle(frame, (left,top), (right,bottom), (0,255,0), 2)\n#     cv2.imshow('Video', frame)\n#     if cv2.waitKey(1) & 0xFF == ord('q'): break\nprint('Real-time detekcija')",
+        "output": "Real-time detekcija"
+      }
+    ]
+  },
+  {
+    "name": "deepface",
+    "category": "AI/ML",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "pip install deepface",
+    "builtin": false,
+    "pip_install": "pip install deepface",
+    "import": "from deepface import DeepFace",
+    "description": "Framework za analizu lica — dob, spol, emocije, rasa, verifikacija.",
+    "docs": "https://github.com/serengil/deepface",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "DeepFace.analyze()",
+        "description": "Analiza lica — dob, spol, emocije.",
+        "parameters": null,
+        "code": "from deepface import DeepFace\n\n# result = DeepFace.analyze('slika.jpg', actions=['age','gender','emotion'])\n# print(f\"Dob: {result[0]['age']}\")\n# print(f\"Spol: {result[0]['dominant_gender']}\")\n# print(f\"Emocija: {result[0]['dominant_emotion']}\")\nprint('DeepFace analiza')",
+        "output": "DeepFace analiza"
+      },
+      {
+        "level": "osnovno",
+        "title": "DeepFace.verify()",
+        "description": "Usporedba dva lica.",
+        "parameters": null,
+        "code": "from deepface import DeepFace\n\n# result = DeepFace.verify('img1.jpg', 'img2.jpg')\n# print(f\"Ista osoba: {result['verified']}\")\n# print(f\"Udaljenost: {result['distance']:.4f}\")\nprint('Verifikacija spremna')",
+        "output": "Verifikacija spremna"
+      },
+      {
+        "level": "srednje",
+        "title": "DeepFace.find()",
+        "description": "Pretraživanje baze lica.",
+        "parameters": null,
+        "code": "from deepface import DeepFace\n\n# dfs = DeepFace.find('query.jpg', db_path='baza_lica/')\n# print(f'Prona■eno {len(dfs)} podudaranja')\nprint('Pretraživanje baze lica')",
+        "output": "Pretraživanje baze lica"
+      }
+    ]
+  },
+  {
+    "name": "mediapipe",
+    "category": "AI/ML",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "pip install mediapipe",
+    "builtin": false,
+    "pip_install": "pip install mediapipe",
+    "import": "import mediapipe as mp",
+    "description": "Google-ov framework za detekciju ruku, lica, poza i objekata u realnom vremenu.",
+    "docs": "https://ai.google.dev/edge/mediapipe/solutions/guide",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "Detekcija ruku",
+        "description": "Pronalazi ruke i prste na slici/videu.",
+        "parameters": null,
+        "code": "import mediapipe as mp\nimport cv2\n\nmp_hands = mp.solutions.hands\nmp_draw = mp.solutions.drawing_utils\n\n# with mp_hands.Hands() as hands:\n#     image = cv2.imread('ruka.jpg')\n#     results = hands.process(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))\n#     if results.multi_hand_landmarks:\n#         for hand in results.multi_hand_landmarks:\n#             mp_draw.draw_landmarks(image, hand, mp_hands.HAND_CONNECTIONS)\nprint('Detekcija ruku spremna')",
+        "output": "Detekcija ruku spremna"
+      },
+      {
+        "level": "srednje",
+        "title": "Detekcija poze",
+        "description": "33 točke tijela u realnom vremenu.",
+        "parameters": null,
+        "code": "import mediapipe as mp\n\nmp_pose = mp.solutions.pose\n\n# with mp_pose.Pose() as pose:\n#     results = pose.process(rgb_image)\n#     if results.pose_landmarks:\n#         for lm in results.pose_landmarks.landmark:\n#             print(f'x={lm.x:.2f}, y={lm.y:.2f}')\nprint('Detekcija poze')",
+        "output": "Detekcija poze"
+      }
+    ]
+  },
+  {
+    "name": "ultralytics (YOLOv8)",
+    "category": "AI/ML",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "pip install ultralytics",
+    "builtin": false,
+    "pip_install": "pip install ultralytics",
+    "import": "from ultralytics import YOLO",
+    "description": "State-of-the-art detekcija, segmentacija i klasifikacija objekata.",
+    "docs": "https://docs.ultralytics.com/",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "YOLO detekcija",
+        "description": "Detekcija objekata na slici.",
+        "parameters": null,
+        "code": "from ultralytics import YOLO\n\n# model = YOLO('yolov8n.pt') # nano model\n# results = model('slika.jpg')\n# for r in results:\n#     for box in r.boxes:\n#         print(f'{r.names[int(box.cls)]}: {box.conf:.2f}')\nprint('YOLO detekcija spremna')",
+        "output": "YOLO detekcija spremna"
+      },
+      {
+        "level": "srednje",
+        "title": "Trening modela",
+        "description": "Fine-tuning na custom datasetu.",
+        "parameters": null,
+        "code": "from ultralytics import YOLO\n\n# model = YOLO('yolov8n.pt')\n# results = model.train(data='dataset.yaml', epochs=50, imgsz=640)\n# metrics = model.val()\n# print(f'mAP50: {metrics.box.map50:.3f}')\nprint('Trening konfiguriran')",
+        "output": "Trening konfiguriran"
+      }
+    ]
+  },
+  {
+    "name": "rembg",
+    "category": "AI/ML",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "pip install rembg",
+    "builtin": false,
+    "pip_install": "pip install rembg",
+    "import": "from rembg import remove",
+    "description": "Automatsko uklanjanje pozadine sa slika pomoču AI-a.",
+    "docs": "https://github.com/danielgatis/rembg",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "remove()",
+        "description": "Uklanja pozadinu sa slike.",
+        "parameters": null,
+        "code": "from rembg import remove\nfrom PIL import Image\n\n# input_img = Image.open('slika.jpg')\n# output_img = remove(input_img)\n# output_img.save('bez_pozadine.png')\nprint('Pozadina uklonjena')",
+        "output": "Pozadina uklonjena"
+      },
+      {
+        "level": "srednje",
+        "title": "CLI i batch",
+        "description": "Uklanjanje pozadine iz terminala.",
+        "parameters": null,
+        "code": "# Terminal:\n# rembg i input.jpg output.png\n# rembg p input_folder/ output_folder/\n\nprint('CLI batch processing')",
+        "output": "CLI batch processing"
+      }
+    ]
+  },
+  {
+    "name": "pyautogui",
+    "category": "Automatizacija",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "pip install pyautogui",
+    "builtin": false,
+    "pip_install": "pip install pyautogui",
+    "import": "import pyautogui",
+    "description": "Automatizacija miša i tipkovnice — klikanje, tipkanje, screenshot.",
+    "docs": "https://pyautogui.readthedocs.io/",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "pyautogui.click()",
+        "description": "Klik na poziciju ekrana.",
+        "parameters": "x, y, clicks=1, button='left'",
+        "code": "import pyautogui\n\n# pyautogui.click(100, 200)\n# pyautogui.doubleClick(100, 200)\n# pyautogui.rightClick(100, 200)\nprint(f'Rezolucija: {pyautogui.size()}')",
+        "output": "Rezolucija: Size(width=1920, height=1080)"
+      },
+      {
+        "level": "osnovno",
+        "title": "pyautogui.write()",
+        "description": "Tipkanje teksta.",
+        "parameters": null,
+        "code": "import pyautogui\n\n# pyautogui.write('Pozdrav!', interval=0.05)\n# pyautogui.hotkey('ctrl', 'c') # Ctrl+C\nprint('Tipkanje konfigurirano')",
+        "output": "Tipkanje konfigurirano"
+      },
+      {
+        "level": "srednje",
+        "title": "Screenshot & locate",
+        "description": "Screenshot i pronalaženje slike na ekranu.",
+        "parameters": null,
+        "code": "import pyautogui\n\n# screenshot = pyautogui.screenshot()\n# screenshot.save('ekran.png')\n\n# lokacija = pyautogui.locateOnScreen('gumb.png')\n# if lokacija:\n#     pyautogui.click(lokacija)\nprint('Screenshot i locate')",
+        "output": "Screenshot i locate"
+      }
+    ]
+  },
+  {
+    "name": "mss",
+    "category": "Automatizacija",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "pip install mss",
+    "builtin": false,
+    "pip_install": "pip install mss",
+    "import": "import mss",
+    "description": "Ultra-brzi screenshot modul — brži od pyautogui za snimanje ekrana.",
+    "docs": "https://python-mss.readthedocs.io/",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "mss.mss()",
+        "description": "Snimanje ekrana.",
+        "parameters": null,
+        "code": "import mss\n\n# with mss.mss() as sct:\n#     screenshot = sct.grab(sct.monitors[1])\n#     mss.tools.to_png(screenshot.rgb, screenshot.size, output='screenshot.png')\nprint('MSS screenshot spreman')",
+        "output": "MSS screenshot spreman"
+      },
+      {
+        "level": "srednje",
+        "title": "Region capture",
+        "description": "Snimanje specifičnog dijela ekrana.",
+        "parameters": null,
+        "code": "import mss\n\n# region = {'top': 100, 'left': 100, 'width': 400, 'height': 300}\n# with mss.mss() as sct:\n#     img = sct.grab(region)\n#     mss.tools.to_png(img.rgb, img.size, output='region.png')\nprint('Region capture')",
+        "output": "Region capture"
+      }
+    ]
+  },
+  {
+    "name": "APScheduler",
+    "category": "Automatizacija",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "pip install APScheduler",
+    "builtin": false,
+    "pip_install": "pip install APScheduler",
+    "import": "from apscheduler.schedulers.background import BackgroundScheduler",
+    "description": "Zakazivanje zadataka u Pythonu — cron, interval, jednokratno izvršavanje.",
+    "docs": "https://apscheduler.readthedocs.io/",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "BackgroundScheduler",
+        "description": "Scheduler koji radi u pozadini.",
+        "parameters": null,
+        "code": "from apscheduler.schedulers.background import BackgroundScheduler\nfrom datetime import datetime\n\ndef posao():\n    print(f'Izvršeno: {datetime.now()}')\n\n# scheduler = BackgroundScheduler()\n# scheduler.add_job(posao, 'interval', seconds=30)\n# scheduler.start()\nprint('Scheduler konfiguriran')",
+        "output": "Scheduler konfiguriran"
+      },
+      {
+        "level": "srednje",
+        "title": "Cron raspored",
+        "description": "Cron-style zakazivanje.",
+        "parameters": null,
+        "code": "from apscheduler.schedulers.background import BackgroundScheduler\n\n# scheduler = BackgroundScheduler()\n# scheduler.add_job(posao, 'cron', hour=8, minute=0) # Svaki dan u 8:00\n# scheduler.add_job(posao, 'cron', day_of_week='mon-fri', hour=9)\nprint('Cron raspored')",
+        "output": "Cron raspored"
+      }
+    ]
+  },
+  {
+    "name": "playwright",
+    "category": "Automatizacija",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "pip install playwright",
+    "builtin": false,
+    "pip_install": "pip install playwright",
+    "import": "from playwright.sync_api import sync_playwright",
+    "description": "Automatizacija browsera — Chromium, Firefox, WebKit. Brži od Seleniuma.",
+    "docs": "https://playwright.dev/python/docs/intro",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "Otvaranje stranice",
+        "description": "Pokretanje browsera i navigacija.",
+        "parameters": null,
+        "code": "from playwright.sync_api import sync_playwright\n\n# with sync_playwright() as p:\n#     browser = p.chromium.launch(headless=False)\n#     page = browser.new_page()\n#     page.goto('https://example.com')\n#     print(page.title())\n#     browser.close()\nprint('Playwright spreman')",
+        "output": "Playwright spreman"
+      },
+      {
+        "level": "srednje",
+        "title": "Interakcija",
+        "description": "Klikanje, tipkanje, čekanje elemenata.",
+        "parameters": null,
+        "code": "from playwright.sync_api import sync_playwright\n\n# with sync_playwright() as p:\n#     browser = p.chromium.launch()\n#     page = browser.new_page()\n#     page.goto('https://example.com')\n#     page.fill('#search', 'Python')\n#     page.click('button[type=submit]')\n#     page.wait_for_selector('.results')\n#     page.screenshot(path='rezultat.png')\nprint('Interakcija definirana')",
+        "output": "Interakcija definirana"
+      }
+    ]
+  },
+  {
+    "name": "selenium",
+    "category": "Automatizacija",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "pip install selenium",
+    "builtin": false,
+    "pip_install": "pip install selenium",
+    "import": "from selenium import webdriver",
+    "description": "Automatizacija web preglednika — testiranje, scraping, ispunjavanje formi.",
+    "docs": "https://www.selenium.dev/documentation/",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "webdriver.Chrome()",
+        "description": "Pokretanje Chrome browsera.",
+        "parameters": null,
+        "code": "from selenium import webdriver\nfrom selenium.webdriver.common.by import By\n\n# driver = webdriver.Chrome()\n# driver.get('https://example.com')\n# print(driver.title)\n# driver.quit()\nprint('Selenium spreman')",
+        "output": "Selenium spreman"
+      },
+      {
+        "level": "srednje",
+        "title": "Pronalaženje elemenata",
+        "description": "Lociranje i interakcija s elementima.",
+        "parameters": null,
+        "code": "from selenium import webdriver\nfrom selenium.webdriver.common.by import By\nfrom selenium.webdriver.support.ui import WebDriverWait\nfrom selenium.webdriver.support import expected_conditions as EC\n\n# driver = webdriver.Chrome()\n# driver.get('https://example.com')\n# elem = WebDriverWait(driver, 10).until(\n#     EC.presence_of_element_located((By.ID, 'myElement'))\n# )\n# elem.click()\nprint('Selenium interakcija')",
+        "output": "Selenium interakcija"
+      }
+    ]
+  },
+  {
+    "name": "BeautifulSoup",
+    "category": "Scraping",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "pip install beautifulsoup4",
+    "builtin": false,
+    "pip_install": "pip install beautifulsoup4",
+    "import": "from bs4 import BeautifulSoup",
+    "description": "Parser za HTML i XML — ekstrakcija podataka s web stranica.",
+    "docs": "https://www.crummy.com/software/BeautifulSoup/bs4/doc/",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "BeautifulSoup()",
+        "description": "Parsiranje HTML-a.",
+        "parameters": null,
+        "code": "from bs4 import BeautifulSoup\n\nhtml = '<html><body><h1>Naslov</h1><p class=\"tekst\">Sadržaj</p></body></html>'\nsoup = BeautifulSoup(html, 'html.parser')\nprint(soup.h1.text)\nprint(soup.find('p', class_='tekst').text)",
+        "output": "Naslov\nSadržaj"
+      },
+      {
+        "level": "osnovno",
+        "title": "find_all()",
+        "description": "Pronalazi sve elemente koji odgovaraju filteru.",
+        "parameters": null,
+        "code": "from bs4 import BeautifulSoup\n\nhtml = '<ul><li>A</li><li>B</li><li>C</li></ul>'\nsoup = BeautifulSoup(html, 'html.parser')\nfor li in soup.find_all('li'):\n    print(li.text)",
+        "output": "A\nB\nC"
+      },
+      {
+        "level": "srednje",
+        "title": "CSS selektori",
+        "description": "Selektiranje elemenata CSS selektorima.",
+        "parameters": null,
+        "code": "from bs4 import BeautifulSoup\n\nhtml = '<div id=\"main\"><a href=\"/link1\">Link 1</a><a href=\"/link2\">Link 2</a></div>'\nsoup = BeautifulSoup(html, 'html.parser')\nfor a in soup.select('#main a'):\n    print(f\"{a.text}: {a['href']}\")",
+        "output": "Link 1: /link1\nLink 2: /link2"
+      }
+    ]
+  },
+  {
+    "name": "lxml",
+    "category": "Scraping",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "pip install lxml",
+    "builtin": false,
+    "pip_install": "pip install lxml",
+    "import": "from lxml import etree",
+    "description": "Brzi XML/HTML parser s XPath podrškom — brži od BeautifulSoup.",
+    "docs": "https://lxml.de/",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "etree.HTML()",
+        "description": "Parsiranje HTML-a.",
+        "parameters": null,
+        "code": "from lxml import etree\n\nhtml = '<html><body><h1>Naslov</h1><p>Tekst</p></body></html>'\ntree = etree.HTML(html)\nprint(tree.xpath('//h1/text()')[0])\nprint(tree.xpath('//p/text()')[0])",
+        "output": "Naslov\nTekst"
+      },
+      {
+        "level": "srednje",
+        "title": "XPath upiti",
+        "description": "Napredni XPath selektori.",
+        "parameters": null,
+        "code": "from lxml import etree\n\nhtml = '<div><a href=\"/1\">Link1</a><a href=\"/2\">Link2</a></div>'\ntree = etree.HTML(html)\nfor href in tree.xpath('//a/@href'):\n    print(href)",
+        "output": "/1\n/2"
+      }
+    ]
+  },
+  {
+    "name": "scrapy",
+    "category": "Scraping",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "pip install scrapy",
+    "builtin": false,
+    "pip_install": "pip install scrapy",
+    "import": "import scrapy",
+    "description": "Močan framework za web scraping — spideri, pipeline, middleware.",
+    "docs": "https://docs.scrapy.org/en/latest/",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "Spider",
+        "description": "Definiranje scrapy spidera.",
+        "parameters": null,
+        "code": "import scrapy\n\nclass MojSpider(scrapy.Spider):\n    name = 'primjer'\n    start_urls = ['https://example.com']\n\n     def parse(self, response):\n         yield {'naslov': response.css('h1::text').get()}\n\n# Pokreni: scrapy crawl primjer\nprint('Spider definiran')",
+        "output": "Spider definiran"
+      },
+      {
+        "level": "srednje",
+        "title": "Pračenje linkova",
+        "description": "Rekurzivno pračenje linkova.",
+        "parameters": null,
+        "code": "import scrapy\n\nclass LinkSpider(scrapy.Spider):\n    name = 'linkovi'\n    start_urls = ['https://example.com']\n\n     def parse(self, response):\n         for href in response.css('a::attr(href)').getall():\n             yield response.follow(href, self.parse_page)\n\n     def parse_page(self, response):\n         yield {'url': response.url, 'title': response.css('title::text').get()}\n\nprint('Link spider')",
+        "output": "Link spider"
+      }
+    ]
+  },
+  {
+    "name": "ccxt",
+    "category": "Financije",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "pip install ccxt",
+    "builtin": false,
+    "pip_install": "pip install ccxt",
+    "import": "import ccxt",
+    "description": "Univerzalna biblioteka za kripto burze — 100+ burzi, trading, OHLCV podaci.",
+    "docs": "https://docs.ccxt.com/",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "Dohvat cijene",
+        "description": "Trenutna cijena kriptovalute.",
+        "parameters": null,
+        "code": "import ccxt\n\nexchange = ccxt.binance()\nticker = exchange.fetch_ticker('BTC/USDT')\nprint(f\"BTC cijena: ${ticker['last']:,.2f}\")",
+        "output": "BTC cijena: $67,432.50"
+      },
+      {
+        "level": "osnovno",
+        "title": "OHLCV podaci",
+        "description": "Povijesni candlestick podaci.",
+        "parameters": null,
+        "code": "import ccxt\n\nexchange = ccxt.binance()\nohlcv = exchange.fetch_ohlcv('ETH/USDT', '1h', limit=5)\nfor candle in ohlcv:\n    print(f'Close: {candle[4]}')",
+        "output": "Close: 3456.78\n..."
+      },
+      {
+        "level": "srednje",
+        "title": "Order book",
+        "description": "Dohvat knjige narudžbi.",
+        "parameters": null,
+        "code": "import ccxt\n\nexchange = ccxt.binance()\nob = exchange.fetch_order_book('BTC/USDT', limit=5)\nprint(f\"Bid: {ob['bids'][0][0]}\")\nprint(f\"Ask: {ob['asks'][0][0]}\")",
+        "output": "Bid: 67430.00\nAsk: 67432.50"
+      }
+    ]
+  },
+  {
+    "name": "vectorbt",
+    "category": "Financije",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "pip install vectorbt",
+    "builtin": false,
+    "pip_install": "pip install vectorbt",
+    "import": "import vectorbt as vbt",
+    "description": "Vektorizirani backtesting — brza analiza trading strategija.",
+    "docs": "https://vectorbt.dev/",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "vbt.YFData.download()",
+        "description": "Preuzimanje podataka s Yahoo Finance.",
+        "parameters": null,
+        "code": "import vectorbt as vbt\n\n# price = vbt.YFData.download('AAPL', period='1y').get('Close')\n# print(price.tail())\nprint('VectorBT spreman')",
+        "output": "VectorBT spreman"
+      },
+      {
+        "level": "srednje",
+        "title": "MA Crossover",
+        "description": "Backtest Moving Average strategije.",
+        "parameters": null,
+        "code": "import vectorbt as vbt\nimport numpy as np\n\n# price = vbt.YFData.download('AAPL', period='2y').get('Close')\n# fast_ma = vbt.MA.run(price, 10)\n# slow_ma = vbt.MA.run(price, 50)\n# entries = fast_ma.ma_crossed_above(slow_ma)\n# exits = fast_ma.ma_crossed_below(slow_ma)\n# pf = vbt.Portfolio.from_signals(price, entries, exits)\n# print(pf.stats())\nprint('MA Crossover backtest')",
+        "output": "MA Crossover backtest"
+      }
+    ]
+  },
+  {
+    "name": "backtesting",
+    "category": "Financije",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "pip install backtesting",
+    "builtin": false,
+    "pip_install": "pip install backtesting",
+    "import": "from backtesting import Backtest, Strategy",
+    "description": "Jednostavan backtesting framework za trading strategije.",
+    "docs": "https://kernc.github.io/backtesting.py/",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "Strategy",
+        "description": "Definiranje trading strategije.",
+        "parameters": null,
+        "code": "from backtesting import Backtest, Strategy\nfrom backtesting.lib import crossover\nfrom backtesting.test import SMA, GOOG\n\nclass SmaCross(Strategy):\n    n1 = 10\n    n2 = 20\n    def init(self):\n        self.sma1 = self.I(SMA, self.data.Close, self.n1)\n        self.sma2 = self.I(SMA, self.data.Close, self.n2)\n    def next(self):\n        if crossover(self.sma1, self.sma2):\n            self.buy()\n        elif crossover(self.sma2, self.sma1):\n            self.sell()\n\n# bt = Backtest(GOOG, SmaCross)\n# stats = bt.run()\n# print(stats)\nprint('Backtest strategija definirana')",
+        "output": "Backtest strategija definirana"
+      },
+      {
+        "level": "srednje",
+        "title": "Optimizacija",
+        "description": "Optimizacija parametara strategije.",
+        "parameters": null,
+        "code": "from backtesting import Backtest\nfrom backtesting.test import SMA, GOOG\n\n# bt = Backtest(GOOG, SmaCross)\n# stats = bt.optimize(n1=range(5, 30, 5), n2=range(10, 70, 5),\n#     maximize='Equity Final [$]')\n# print(stats._strategy)\nprint('Optimizacija parametara')",
+        "output": "Optimizacija parametara"
+      }
+    ]
+  },
+  {
+    "name": "pandas-ta",
+    "category": "Financije",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "pip install pandas-ta-classic",
+    "builtin": false,
+    "pip_install": "pip install pandas-ta-classic",
+    "import": "import pandas_ta as ta",
+    "description": "130+ tehničkih indikatora za pandas DataFrame — RSI, MACD, Bollinger Bands.",
+    "docs": "https://github.com/twopirllc/pandas-ta",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "RSI",
+        "description": "Relative Strength Index.",
+        "parameters": null,
+        "code": "import pandas as pd\nimport pandas_ta as ta\n\ndf = pd.DataFrame({'close': [44,44.5,44.8,45,44.5,44,43.5,44,44.5,45,45.5,46,45.5,45,44.5]})\ndf['rsi'] = df.ta.rsi(length=14)\nprint(df['rsi'].dropna().values[-1])",
+        "output": "..."
+      },
+      {
+        "level": "osnovno",
+        "title": "SMA / EMA",
+        "description": "Simple i Exponential Moving Average.",
+        "parameters": null,
+        "code": "import pandas as pd\nimport pandas_ta as ta\n\ndf = pd.DataFrame({'close': [10,11,12,11,13,14,13,15,16,14]})\ndf['sma'] = df.ta.sma(length=3)\ndf['ema'] = df.ta.ema(length=3)\nprint(df[['sma','ema']].tail(3))",
+        "output": "      sma       ema\n..."
+      },
+      {
+        "level": "srednje",
+        "title": "MACD",
+        "description": "Moving Average Convergence Divergence.",
+        "parameters": null,
+        "code": "import pandas as pd\nimport pandas_ta as ta\n\n# df['macd'] = df.ta.macd()\n# print(df[['MACD_12_26_9', 'MACDh_12_26_9', 'MACDs_12_26_9']].tail())\nprint('MACD indikator')",
+        "output": "MACD indikator"
+      }
+    ]
+  },
+  {
+    "name": "OpenCV",
+    "category": "Mediji",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "pip install opencv-python",
+    "builtin": false,
+    "pip_install": "pip install opencv-python",
+    "import": "import cv2",
+    "description": "Računalni vid — obrada slika, video, detekcija objekata, transformacije.",
+    "docs": "https://docs.opencv.org/4.x/",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "cv2.imread()",
+        "description": "Učitavanje i prikaz slike.",
+        "parameters": null,
+        "code": "import cv2\n\n# img = cv2.imread('slika.jpg')\n# print(f'Dimenzije: {img.shape}')\n# gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)\n# cv2.imwrite('siva.jpg', gray)\nprint('OpenCV spreman')",
+        "output": "OpenCV spreman"
+      },
+      {
+        "level": "osnovno",
+        "title": "Resize",
+        "description": "Promjena veličine slike.",
+        "parameters": null,
+        "code": "import cv2\n\n# img = cv2.imread('slika.jpg')\n# resized = cv2.resize(img, (300, 200))\n# cv2.imwrite('resized.jpg', resized)\nprint('Resize gotov')",
+        "output": "Resize gotov"
+      },
+      {
+        "level": "srednje",
+        "title": "Video capture",
+        "description": "Snimanje videa s kamere.",
+        "parameters": null,
+        "code": "import cv2\n\n# cap = cv2.VideoCapture(0)\n# while True:\n#     ret, frame = cap.read()\n#     cv2.imshow('Video', frame)\n#     if cv2.waitKey(1) & 0xFF == ord('q'): break\n# cap.release()\nprint('Video capture')",
+        "output": "Video capture"
+      }
+    ]
+  },
+  {
+    "name": "moviepy",
+    "category": "Mediji",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "pip install moviepy",
+    "builtin": false,
+    "pip_install": "pip install moviepy",
+    "import": "from moviepy.editor import VideoFileClip",
+    "description": "Urečivanje videa u Pythonu — rezanje, spajanje, efekti, tekst, audio.",
+    "docs": "https://zulko.github.io/moviepy/",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "VideoFileClip",
+        "description": "Učitavanje i osnovne operacije.",
+        "parameters": null,
+        "code": "from moviepy.editor import VideoFileClip\n\n# video = VideoFileClip('video.mp4')\n# print(f'Trajanje: {video.duration}s')\n# clip = video.subclip(10, 20) # 10-20 sekundi\n# clip.write_videofile('isjecak.mp4')\nprint('MoviePy spreman')",
+        "output": "MoviePy spreman"
+      },
+      {
+        "level": "srednje",
+        "title": "Spajanje i tekst",
+        "description": "Spajanje videa i dodavanje teksta.",
+        "parameters": null,
+        "code": "from moviepy.editor import VideoFileClip, TextClip, concatenate_videoclips\n\n# clip1 = VideoFileClip('video1.mp4').subclip(0, 5)\n# clip2 = VideoFileClip('video2.mp4').subclip(0, 5)\n# final = concatenate_videoclips([clip1, clip2])\n# final.write_videofile('spojeno.mp4')\nprint('Video spajanje')",
+        "output": "Video spajanje"
+      }
+    ]
+  },
+  {
+    "name": "manim",
+    "category": "Mediji",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "pip install manim",
+    "builtin": false,
+    "pip_install": "pip install manim",
+    "import": "from manim import *",
+    "description": "Matematičke animacije (3Blue1Brown stil) — grafovi, transformacije, jednadžbe.",
+    "docs": "https://docs.manim.community/en/stable/",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "Scene",
+        "description": "Kreiranje osnovne animirane scene.",
+        "parameters": null,
+        "code": "from manim import *\n\nclass MojaScena(Scene):\n    def construct(self):\n        krug = Circle(color=BLUE)\n        self.play(Create(krug))\n        self.play(krug.animate.shift(RIGHT * 2))\n        self.wait()\n\n# Pokreni: manim -pql scena.py MojaScena\nprint('Manim scena definirana')",
+        "output": "Manim scena definirana"
+      },
+      {
+        "level": "srednje",
+        "title": "Matematičke formule",
+        "description": "LaTeX formule u animaciji.",
+        "parameters": null,
+        "code": "from manim import *\n\nclass Formula(Scene):\n    def construct(self):\n        eq = MathTex(r'E = mc^2')\n        self.play(Write(eq))\n        eq2 = MathTex(r'\\int_0^\\infty e^{-x} dx = 1')\n        self.play(Transform(eq, eq2))\n\nprint('LaTeX animacija')",
+        "output": "LaTeX animacija"
+      }
+    ]
+  },
+  {
+    "name": "pygame",
+    "category": "Mediji",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "pip install pygame",
+    "builtin": false,
+    "pip_install": "pip install pygame",
+    "import": "import pygame",
+    "description": "Biblioteka za 2D igre — sprite, zvuk, input, kolizije, animacije.",
+    "docs": "https://www.pygame.org/docs/",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "pygame.init()",
+        "description": "Pokretanje pygame prozora.",
+        "parameters": null,
+        "code": "import pygame\n\n# pygame.init()\n# screen = pygame.display.set_mode((800, 600))\n# pygame.display.set_caption('Moja igra')\n# running = True\n# while running:\n#     for event in pygame.event.get():\n#         if event.type == pygame.QUIT:\n#             running = False\n#     screen.fill((0, 0, 0))\n#     pygame.display.flip()\n# pygame.quit()\nprint('Pygame spreman')",
+        "output": "Pygame spreman"
+      },
+      {
+        "level": "srednje",
+        "title": "Sprite i kretanje",
+        "description": "Crtanje i pomicanje objekata.",
+        "parameters": null,
+        "code": "import pygame\n\n# pygame.init()\n# screen = pygame.display.set_mode((800, 600))\n# x, y = 400, 300\n# clock = pygame.time.Clock()\n# while True:\n#     keys = pygame.key.get_pressed()\n#     if keys[pygame.K_LEFT]: x -= 5\n#     if keys[pygame.K_RIGHT]: x += 5\n#     screen.fill((0,0,0))\n#     pygame.draw.circle(screen, (255,0,0), (x,y), 20)\n#     pygame.display.flip()\n#     clock.tick(60)\nprint('Sprite kretanje')",
+        "output": "Sprite kretanje"
+      }
+    ]
+  },
+  {
+    "name": "photoshop-python-api",
+    "category": "Mediji",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "pip install photoshop-python-api",
+    "builtin": false,
+    "pip_install": "pip install photoshop-python-api",
+    "import": "import photoshop.api as ps",
+    "description": "Automatizacija Adobe Photoshopa iz Pythona — slojevi, filteri, batch obrada.",
+    "docs": "https://loonghao.github.io/photoshop-python-api/",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "ps.Application()",
+        "description": "Povezivanje s Photoshopom.",
+        "parameters": null,
+        "code": "import photoshop.api as ps\n\n# app = ps.Application()\n# doc = app.open('slika.psd')\n# print(f'Dokument: {doc.name}')\n# print(f'Slojevi: {len(doc.layers)}')\nprint('Photoshop API spreman')",
+        "output": "Photoshop API spreman"
+      },
+      {
+        "level": "srednje",
+        "title": "Manipulacija slojeva",
+        "description": "Rad sa slojevima u PSD-u.",
+        "parameters": null,
+        "code": "import photoshop.api as ps\n\n# app = ps.Application()\n# doc = app.activeDocument\n# for layer in doc.layers:\n#     print(f'{layer.name}: visible={layer.visible}')\n#     layer.opacity = 80\nprint('Slojevi obra■eni')",
+        "output": "Slojevi obra■eni"
+      }
+    ]
+  },
+  {
+    "name": "psd-tools",
+    "category": "Mediji",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "pip install psd-tools",
+    "builtin": false,
+    "pip_install": "pip install psd-tools",
+    "import": "from psd_tools import PSDImage",
+    "description": "čitanje i manipulacija PSD datoteka bez Photoshopa.",
+    "docs": "https://psd-tools.readthedocs.io/",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "PSDImage.open()",
+        "description": "Otvaranje PSD datoteke.",
+        "parameters": null,
+        "code": "from psd_tools import PSDImage\n\n# psd = PSDImage.open('design.psd')\n# print(f'Veli■ina: {psd.width}x{psd.height}')\n# for layer in psd:\n#     print(f'Sloj: {layer.name}')\n# psd.composite().save('output.png')\nprint('PSD tools spreman')",
+        "output": "PSD tools spreman"
+      },
+      {
+        "level": "srednje",
+        "title": "Izvoz slojeva",
+        "description": "Izvoz pojedinih slojeva kao slike.",
+        "parameters": null,
+        "code": "from psd_tools import PSDImage\n\n# psd = PSDImage.open('design.psd')\n# for layer in psd:\n#     if layer.is_visible():\n#         image = layer.composite()\n#         image.save(f'{layer.name}.png')\nprint('Slojevi izvezeni')",
+        "output": "Slojevi izvezeni"
+      }
+    ]
+  },
+  {
+    "name": "rich",
+    "category": "Terminal UI",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "pip install rich",
+    "builtin": false,
+    "pip_install": "pip install rich",
+    "import": "from rich import print",
+    "description": "Bogati tekst u terminalu — boje, tablice, progress bar, markdown, syntax highlighting.",
+    "docs": "https://rich.readthedocs.io/",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "rich.print()",
+        "description": "Obogačeni ispis u terminalu.",
+        "parameters": null,
+        "code": "from rich import print as rprint\n\nrprint('[bold red]Greška![/bold red] Nešto nije u redu.')\nrprint('[green]✓[/green] Uspješno završeno')\nrprint('[blue underline]https://example.com[/blue underline]')\nprint('Rich formatiranje')",
+        "output": "Rich formatiranje"
+      },
+      {
+        "level": "osnovno",
+        "title": "Table",
+        "description": "Formatirana tablica u terminalu.",
+        "parameters": null,
+        "code": "from rich.table import Table\nfrom rich.console import Console\n\ntable = Table(title='Korisnici')\ntable.add_column('Ime', style='cyan')\ntable.add_column('Dob', style='magenta')\ntable.add_row('Ana', '25')\ntable.add_row('Marko', '30')\n\n# Console().print(table)\nprint('Rich tablica kreirana')",
+        "output": "Rich tablica kreirana"
+      },
+      {
+        "level": "srednje",
+        "title": "Progress bar",
+        "description": "Animirani progress bar.",
+        "parameters": null,
+        "code": "from rich.progress import track\nimport time\n\n# for i in track(range(100), description='Obra■ujem...'):\n#     time.sleep(0.02)\nprint('Progress bar')",
+        "output": "Progress bar"
+      }
+    ]
+  },
+  {
+    "name": "textual",
+    "category": "Terminal UI",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "pip install textual",
+    "builtin": false,
+    "pip_install": "pip install textual",
+    "import": "from textual.app import App",
+    "description": "TUI framework — moderan terminal UI s widgetima, CSS stilizacijom i async podrškom.",
+    "docs": "https://textual.textualize.io/",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "App",
+        "description": "Osnovna Textual aplikacija.",
+        "parameters": null,
+        "code": "from textual.app import App, ComposeResult\nfrom textual.widgets import Header, Footer, Static\n\nclass MojaApp(App):\n    def compose(self) -> ComposeResult:\n        yield Header()\n        yield Static('Pozdrav iz TUI-a!')\n        yield Footer()\n\n# MojaApp().run()\nprint('Textual app definiran')",
+        "output": "Textual app definiran"
+      },
+      {
+        "level": "srednje",
+        "title": "Widgeti i CSS",
+        "description": "Stilizacija TUI-a pomoču CSS-a.",
+        "parameters": null,
+        "code": "from textual.app import App, ComposeResult\nfrom textual.widgets import Button, Label\n\nclass StilApp(App):\n    CSS = '''\n    Button { margin: 1 2; }\n    Label { text-align: center; }\n    '''\n    def compose(self) -> ComposeResult:\n        yield Label('Dashboard')\n        yield Button('Klikni', variant='primary')\n\nprint('TUI sa CSS-om')",
+        "output": "TUI sa CSS-om"
+      }
+    ]
+  },
+  {
+    "name": "asciimatics",
+    "category": "Terminal UI",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "pip install asciimatics",
+    "builtin": false,
+    "pip_install": "pip install asciimatics",
+    "import": "from asciimatics.screen import Screen",
+    "description": "ASCII animacije i UI u terminalu — efekti, forme, widgeti.",
+    "docs": "https://asciimatics.readthedocs.io/",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "Screen",
+        "description": "Kreiranje terminal animacije.",
+        "parameters": null,
+        "code": "from asciimatics.screen import Screen\n\ndef demo(screen):\n    screen.print_at('Pozdrav!', 10, 5, colour=Screen.COLOUR_GREEN)\n    screen.refresh()\n    screen.wait_for_input(5)\n\n# Screen.wrapper(demo)\nprint('Asciimatics spreman')",
+        "output": "Asciimatics spreman"
+      },
+      {
+        "level": "srednje",
+        "title": "Fire efekt",
+        "description": "ASCII fire animacija.",
+        "parameters": null,
+        "code": "from asciimatics.effects import Print\nfrom asciimatics.renderers import Fire\nfrom asciimatics.scene import Scene\nfrom asciimatics.screen import Screen\n\ndef demo(screen):\n    effects = [Print(screen, Fire(screen.height, 80, '*', 0.8, 60), 0)]\n    screen.play([Scene(effects, 200)])\n\n# Screen.wrapper(demo)\nprint('Fire efekt')",
+        "output": "Fire efekt"
+      }
+    ]
+  },
+  {
+    "name": "blessed",
+    "category": "Terminal UI",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "pip install blessed",
+    "builtin": false,
+    "pip_install": "pip install blessed",
+    "import": "from blessed import Terminal",
+    "description": "Terminal formatting biblioteka — boje, pozicioniranje, tipkovnica.",
+    "docs": "https://blessed.readthedocs.io/",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "Terminal()",
+        "description": "Formatiranje terminala.",
+        "parameters": null,
+        "code": "from blessed import Terminal\n\nt = Terminal()\nprint(t.bold('Bold tekst'))\nprint(t.red('Crveni tekst'))\nprint(t.green_on_black('Zeleno na crnom'))\nprint(f'Terminal: {t.width}x{t.height}')",
+        "output": "Bold tekst\nCrveni tekst\nZeleno na crnom\nTerminal: 80x24"
+      },
+      {
+        "level": "srednje",
+        "title": "Pozicioniranje",
+        "description": "Ispis na specifičnu poziciju.",
+        "parameters": null,
+        "code": "from blessed import Terminal\n\nt = Terminal()\n# with t.location(10, 5):\n#     print('Tekst na poziciji (10, 5)')\n# with t.fullscreen():\n#     print(t.center('Centrirano!'))\nprint('Pozicioniranje u terminalu')",
+        "output": "Pozicioniranje u terminalu"
+      }
+    ]
+  },
+  {
+    "name": "pytesseract",
+    "category": "QR/OCR",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "pip install pytesseract",
+    "builtin": false,
+    "pip_install": "pip install pytesseract",
+    "import": "import pytesseract",
+    "description": "OCR — prepoznavanje teksta sa slika pomoču Tesseract engina.",
+    "docs": "https://github.com/madmaze/pytesseract",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "image_to_string()",
+        "description": "Ekstrakcija teksta sa slike.",
+        "parameters": null,
+        "code": "import pytesseract\nfrom PIL import Image\n\n# img = Image.open('tekst.png')\n# text = pytesseract.image_to_string(img, lang='hrv')\n# print(text)\nprint('OCR spreman')",
+        "output": "OCR spreman"
+      },
+      {
+        "level": "srednje",
+        "title": "image_to_data()",
+        "description": "Detaljni podaci o detektiranom tekstu.",
+        "parameters": null,
+        "code": "import pytesseract\nfrom PIL import Image\n\n# img = Image.open('dokument.png')\n# data = pytesseract.image_to_data(img, output_type=pytesseract.Output.DICT)\n# for i, word in enumerate(data['text']):\n#     if word.strip():\n#         print(f'{word} (conf: {data[\"conf\"][i]}%)')\nprint('OCR s podacima')",
+        "output": "OCR s podacima"
+      }
+    ]
+  },
+  {
+    "name": "qrcode",
+    "category": "QR/OCR",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "pip install qrcode",
+    "builtin": false,
+    "pip_install": "pip install qrcode",
+    "import": "import qrcode",
+    "description": "Generiranje QR kodova — tekst, URL, WiFi, vCard.",
+    "docs": "https://github.com/lincolnloop/python-qrcode",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "qrcode.make()",
+        "description": "Brzo generiranje QR koda.",
+        "parameters": null,
+        "code": "import qrcode\n\n# img = qrcode.make('https://example.com')\n# img.save('qr.png')\nprint('QR kod generiran')",
+        "output": "QR kod generiran"
+      },
+      {
+        "level": "srednje",
+        "title": "Napredni QR",
+        "description": "QR kod s bojama i logom.",
+        "parameters": null,
+        "code": "import qrcode\n\nqr = qrcode.QRCode(version=1, box_size=10, border=4)\nqr.add_data('https://example.com')\nqr.make(fit=True)\n# img = qr.make_image(fill_color='navy', back_color='white')\n# img.save('qr_custom.png')\nprint('Custom QR kod')",
+        "output": "Custom QR kod"
+      }
+    ]
+  },
+  {
+    "name": "segno",
+    "category": "QR/OCR",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "pip install segno",
+    "builtin": false,
+    "pip_install": "pip install segno",
+    "import": "import segno",
+    "description": "Brzi QR generator — SVG, PNG, EPS, PDF. Lakši od qrcode.",
+    "docs": "https://segno.readthedocs.io/",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "segno.make()",
+        "description": "Generiranje QR koda.",
+        "parameters": null,
+        "code": "import segno\n\nqr = segno.make('https://example.com')\n# qr.save('qr.png', scale=5)\n# qr.save('qr.svg', scale=5)\nprint(f'Verzija: {qr.version}')\nprint(f'Simboli: {qr.symbol_size()}')",
+        "output": "Verzija: 3\nSimvoli: (29, 29)"
+      },
+      {
+        "level": "srednje",
+        "title": "WiFi QR",
+        "description": "QR kod za WiFi pristup.",
+        "parameters": null,
+        "code": "import segno\n\n# wifi_qr = segno.helpers.make_wifi(\n#     ssid='MojaWiFi', password='lozinka123', security='WPA'\n# )\n# wifi_qr.save('wifi.png', scale=5)\nprint('WiFi QR kod')",
+        "output": "WiFi QR kod"
+      }
+    ]
+  },
+  {
+    "name": "imagehash",
+    "category": "QR/OCR",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "pip install imagehash",
+    "builtin": false,
+    "pip_install": "pip install imagehash",
+    "import": "import imagehash",
+    "description": "Perceptualni hash slika — usporedba sličnosti, detekcija duplikata.",
+    "docs": "https://github.com/JohannesBuchner/imagehash",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "average_hash()",
+        "description": "Izračun perceptualnog hasha slike.",
+        "parameters": null,
+        "code": "import imagehash\nfrom PIL import Image\n\n# hash1 = imagehash.average_hash(Image.open('img1.jpg'))\n# hash2 = imagehash.average_hash(Image.open('img2.jpg'))\n# razlika = hash1 - hash2\n# print(f'Razlika: {razlika}')\n# print(f'Sli■ne: {razlika < 5}')\nprint('Imagehash spreman')",
+        "output": "Imagehash spreman"
+      },
+      {
+        "level": "srednje",
+        "title": "Više hash metoda",
+        "description": "Različiti algoritmi za hash.",
+        "parameters": null,
+        "code": "import imagehash\nfrom PIL import Image\n\n# img = Image.open('slika.jpg')\n# print(f'Average: {imagehash.average_hash(img)}')\n# print(f'Perceptual: {imagehash.phash(img)}')\n# print(f'Difference: {imagehash.dhash(img)}')\n# print(f'Wavelet: {imagehash.whash(img)}')\nprint('Više hash metoda')",
+        "output": "Više hash metoda"
+      }
+    ]
+  },
+  {
+    "name": "ShopifyAPI",
+    "category": "E-commerce",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "pip install ShopifyAPI",
+    "builtin": false,
+    "pip_install": "pip install ShopifyAPI",
+    "import": "import shopify",
+    "description": "Službeni Shopify Admin API klijent za Python — proizvodi, narudžbe, kupci.",
+    "docs": "https://github.com/Shopify/shopify_python_api",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "Shopify sesija",
+        "description": "Spajanje na Shopify store.",
+        "parameters": null,
+        "code": "import shopify\n\n# shopify.ShopifyResource.set_site('https://store.myshopify.com/admin')\n# shopify.ShopifyResource.set_headers({'X-Shopify-Access-Token': 'token'})\n# products = shopify.Product.find()\n# for p in products:\n#     print(f'{p.title}: ${p.variants[0].price}')\nprint('Shopify API spreman')",
+        "output": "Shopify API spreman"
+      },
+      {
+        "level": "srednje",
+        "title": "CRUD proizvodi",
+        "description": "Kreiranje i ažuriranje proizvoda.",
+        "parameters": null,
+        "code": "import shopify\n\n# novi = shopify.Product()\n# novi.title = 'Novi proizvod'\n# novi.body_html = '<p>Opis</p>'\n# novi.variants = [{'price': '29.99'}]\n# novi.save()\n# print(f'ID: {novi.id}')\nprint('Proizvod kreiran')",
+        "output": "Proizvod kreiran"
+      }
+    ]
+  },
+  {
+    "name": "facebook-business",
+    "category": "E-commerce",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "pip install facebook-business",
+    "builtin": false,
+    "pip_install": "pip install facebook-business",
+    "import": "from facebook_business.api import FacebookAdsApi",
+    "description": "Facebook/Meta Marketing API — kampanje, oglasi, publika, izvještaji.",
+    "docs": "https://developers.facebook.com/docs/marketing-apis/",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "FacebookAdsApi",
+        "description": "Inicijalizacija API-ja.",
+        "parameters": null,
+        "code": "from facebook_business.api import FacebookAdsApi\nfrom facebook_business.adobjects.adaccount import AdAccount\n\n# FacebookAdsApi.init(app_id, app_secret, access_token)\n# account = AdAccount('act_123456')\n# campaigns = account.get_campaigns()\n# for c in campaigns:\n#     print(f'{c[\"name\"]}: {c[\"status\"]}')\nprint('Facebook Ads API')",
+        "output": "Facebook Ads API"
+      },
+      {
+        "level": "srednje",
+        "title": "Insights",
+        "description": "Dohvat statistika kampanja.",
+        "parameters": null,
+        "code": "from facebook_business.adobjects.adaccount import AdAccount\n\n# account = AdAccount('act_123456')\n# insights = account.get_insights(params={\n#     'date_preset': 'last_30d',\n#     'fields': ['impressions', 'clicks', 'spend']\n# })\n# for i in insights:\n#     print(f\"Spend: ${i['spend']}, Clicks: {i['clicks']}\")\nprint('Insights dohva■eni')",
+        "output": "Insights dohva■eni"
+      }
+    ]
+  },
+  {
+    "name": "google-ads",
+    "category": "E-commerce",
+    "level": [
+      "osnovno",
+      "srednje"
+    ],
+    "builtin/pip_install": "pip install google-ads",
+    "builtin": false,
+    "pip_install": "pip install google-ads",
+    "import": "from google.ads.googleads.client import GoogleAdsClient",
+    "description": "Google Ads API klijent — kampanje, ključne riječi, izvještaji, budžeti.",
+    "docs": "https://developers.google.com/google-ads/api/docs/start",
+    "example": [
+      {
+        "level": "osnovno",
+        "title": "GoogleAdsClient",
+        "description": "Inicijalizacija klijenta.",
+        "parameters": null,
+        "code": "from google.ads.googleads.client import GoogleAdsClient\n\n# client = GoogleAdsClient.load_from_storage('google-ads.yaml')\n# ga_service = client.get_service('GoogleAdsService')\n# query = 'SELECT campaign.name, metrics.clicks FROM campaign'\n# response = ga_service.search(customer_id='1234567890', query=query)\n# for row in response:\n#     print(f'{row.campaign.name}: {row.metrics.clicks} clicks')\nprint('Google Ads API')",
+        "output": "Google Ads API"
+      },
+      {
+        "level": "srednje",
+        "title": "Kreiranje kampanje",
+        "description": "Programsko kreiranje kampanje.",
+        "parameters": null,
+        "code": "from google.ads.googleads.client import GoogleAdsClient\n\n# client = GoogleAdsClient.load_from_storage()\n# campaign_service = client.get_service('CampaignService')\n# campaign_op = client.get_type('CampaignOperation')\n# campaign = campaign_op.create\n# campaign.name = 'Nova kampanja'\n# campaign.advertising_channel_type = client.enums.AdvertisingChannelTypeEnum.SEARCH\nprint('Kampanja kreirana')",
+        "output": "Kampanja kreirana"
+      }
+    ]
+  }
+]
